@@ -3,7 +3,7 @@ name: divi5-dev
 description: >
   Use when the user invokes /divi-install, /divi-install-docker, /divi-childtheme,
   /divi-backup, /divi-dev, /divi-project-filesystem, /divi-plugin, /divi-animations,
-  /divi-deploy, /divi-debug, /divi-release, /divi-module, /divi-optimize — or wenn
+  /divi-deploy, /divi-debug, /divi-release, /divi-module, /divi-optimize, /divi-builder — or wenn
   der Nutzer mit WordPress + Divi 5 entwickeln, designen oder Probleme lösen möchte.
 ---
 
@@ -52,13 +52,45 @@ Diese Regeln gelten für ALLE Outputs dieses Skills — Code, Dateien, Kommentar
 | Vanilla Tilt.js | MIT | 1.8.1 | 3D-Tilt-Effekte |
 | Alpine.js | MIT | 3.15.12 | UI-Interaktivität |
 | Swiper.js | MIT | 12.2.0 | Slider/Karussell |
-| Bunny Fonts | Gratis, DSGVO-OK | — | EU-sicherer Font-CDN |
+| Bunny Fonts | Gratis | — | Externer Font-Dienst; nur nach Datenschutzprüfung und ausdrücklicher Freigabe, lokale Fonts bleiben Standard |
 
 > **GSAP-Lizenzhinweis:** Seit 30. April 2025 ist GSAP (inkl. aller ehemaligen Club-Plugins wie ScrollTrigger, SplitText, MorphSVG) vollständig kostenlos, auch kommerziell. Einzige Einschränkung: Nicht in visuellen No-Code-Animationsbauern einsetzen, die mit Webflow konkurrieren. Für normale Websites und Client-Projekte uneingeschränkt nutzbar.
 
 ---
 
 ## Befehle
+
+### /divi-builder
+
+Direkte, sichere Arbeit im Divi-5-Visual-Builder.
+
+**Vor jeder Änderung:**
+
+1. Zielseite, Status und aktiven Wartungsmodus prüfen.
+2. Einen vollständigen UpdraftPlus-Rückfallpunkt prüfen oder anlegen.
+3. Globale Header-, Menü- und Footer-Layouts als geschützt behandeln, sofern der Auftrag sie nicht ausdrücklich nennt.
+4. In der Drahtgitteransicht zuerst die vorhandene Struktur lesen: Sektion → Zeile → Spalte → Gruppe → Modul.
+
+**Sicher bearbeiten:**
+
+- Die Kommandozentrale mit `⌘ K` (macOS) oder `Strg K` (Windows) öffnen. Sie fügt Elemente kontextabhängig ein; daher immer zuerst das richtige Modul, die richtige Zeile oder Sektion auswählen.
+- Neue Sektionen, Zeilen und Gruppen sofort in den Meta-Einstellungen eindeutig beschriften, zum Beispiel `Startseite – Wissen – Dunkel`.
+- Für Seiten, die ausschließlich mit Divi umgesetzt werden sollen, nur native Divi-Elemente verwenden. Keine Custom-CSS-Klassen, keine Inline-Skripte und keine fremden Builder-Strukturen einfügen.
+- Glass-Eindrücke ausschließlich mit nativen halbtransparenten Hintergründen, feinen Rändern, Radius und dezenten Schatten erzeugen. Kontrast und Lesbarkeit gehen vor Effekt.
+- Lokale Medien aus der WordPress-Mediathek verwenden. Jedes informative Bild erhält einen konkreten Alternativtext; dekorative Icons werden als dekorativ gekennzeichnet.
+- Gibt es keine fachlich passende, konsistente Icon-Serie in der Mediathek, native Divi-Iconmodule verwenden statt ungeeignete Sammelbilder zu zweckentfremden.
+
+**Vor dem Speichern:**
+
+```text
+Desktop, Tablet und Phone prüfen
+eine H1 und logische H2/H3-Hierarchie prüfen
+Textkontrast, Fokus und Berührungsflächen prüfen
+Rank Math: SEO-Titel, Meta-Beschreibung, interne Links und Alt-Texte prüfen
+Header, eigenes Menü und Footer erneut sichtbar gegenprüfen
+```
+
+Danach speichern, die angemeldete Frontend-Vorschau prüfen und die Änderung für Menschen verständlich dokumentieren.
 
 ### /divi-install
 

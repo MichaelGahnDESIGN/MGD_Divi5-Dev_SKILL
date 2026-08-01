@@ -36,6 +36,7 @@ KI-Agenten im Agentur-Alltag von Michael Gahn DESIGN — und soll genau das wide
 | `/divi-design-system` | Design Variables, Fluid Typography mit clamp(), Presets, Colorscheme |
 | `/divi-ai` | Divi AI sinnvoll einsetzen — Workflow, Grenzen, DSGVO |
 | `/divi-canvas` | Popups, Off-Canvas Menüs, Scroll-Trigger, Exit-Intent mit Divi Canvases |
+| `/divi-builder` | Sichere direkte Arbeit im Divi-5-Visual-Builder: Kommandozentrale, Drahtgitter, Medien, Responsive- und SEO-Abnahme |
 
 ## Grundregeln — Was Dieser Skill Immer Tut
 
@@ -61,7 +62,7 @@ Diese Regeln sind nicht verhandelbar und gelten für jeden Output:
 | Vanilla Tilt.js | MIT | 1.8.1 | 3D-Tilt-Effekte |
 | Alpine.js | MIT | 3.15.12 | UI-Interaktivität |
 | Swiper.js | MIT | 12.2.0 | Slider/Karussell |
-| Bunny Fonts | Gratis, DSGVO-OK | — | EU-sicherer Font-CDN |
+| Bunny Fonts | Gratis | — | Externer Font-Dienst; nur nach Datenschutzprüfung und ausdrücklicher Freigabe, lokale Fonts bleiben Standard |
 
 GSAP ist seit 30. April 2025 vollständig kostenlos, auch kommerziell — inkl. ScrollTrigger,
 SplitText und allen ehemaligen Club-Plugins. Nutzbar für alle normalen Websites und
@@ -71,15 +72,22 @@ Client-Projekte ohne Einschränkungen.
 
 ```bash
 # Claude Code
-git clone https://github.com/MichaelGahnDESIGN/MGD-Divi5-Dev ~/.claude/skills/MGD-Divi5-Dev
+git clone https://github.com/MichaelGahnDESIGN/MGD_Divi5-Dev_SKILL.git ~/.claude/skills/MGD_Divi5-Dev_SKILL
 ```
 
 ```bash
 # ChatGPT Codex
-git clone https://github.com/MichaelGahnDESIGN/MGD-Divi5-Dev ~/.codex/skills/MGD-Divi5-Dev
+git clone https://github.com/MichaelGahnDESIGN/MGD_Divi5-Dev_SKILL.git ~/.codex/skills/MGD_Divi5-Dev_SKILL
 ```
 
 Dann im Projekt-Kontext:
+
+```text
+/divi-builder
+Bearbeite die Startseite ausschließlich mit nativen Divi-5-Modulen.
+Header, eigenes Menü und Footer dürfen nicht verändert werden.
+Nutze UpdraftPlus als Rückfallpunkt und prüfe Rank Math vor dem Speichern.
+```
 
 ```text
 /divi-childtheme
@@ -138,6 +146,19 @@ MGD-Divi5-Dev/
 ```
 
 ## Was Der Skill Enthält
+
+### Sicherer Divi-5-Visual-Builder-Workflow
+
+Der neue `/divi-builder`-Befehl schließt eine typische Lücke zwischen „Layout gestalten“ und „sicher auf einer echten Website arbeiten“:
+
+1. Rückfallpunkt, Zielseite und Wartungsmodus prüfen.
+2. Geschützte globale Vorlagen wie Header, eigenes Menü und Footer klar aus dem Arbeitsbereich ausschließen.
+3. In der Drahtgitteransicht die bestehende Struktur verstehen, statt versehentlich in die falsche Sektion zu schreiben.
+4. Die Kommandozentrale mit `⌘ K` beziehungsweise `Strg K` verwenden. Sie ergänzt Elemente abhängig von der aktuellen Auswahl – deshalb wird die Auswahl immer vor dem Einfügen geprüft.
+5. Neue Elemente eindeutig beschriften, lokale Medien mit passenden Alternativtexten einfügen und alle Breakpoints prüfen.
+6. Erst dann speichern und über Rank Math die SEO-Grundlagen kontrollieren.
+
+Der Workflow ist besonders sinnvoll für Agentur-Websites, auf denen bereits globale Vorlagen, reale Referenzen und geschäftskritische Kontaktstrecken vorhanden sind.
 
 ### WordPress Plugin-Entwicklung
 Vollständige Plugin-Struktur mit korrektem Header, Lifecycle-Hooks, Sicherheits-Template

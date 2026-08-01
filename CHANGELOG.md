@@ -2,6 +2,19 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.4.0] — 2026-08-02
+
+### Hinzugefügt
+
+- `/divi-builder` für sichere direkte Arbeit im Divi-5-Visual-Builder.
+- Verbindlicher Ablauf für UpdraftPlus-Rückfallpunkte, geschützte globale Vorlagen, Drahtgitteransicht, Kommandozentrale und responsive Abnahme.
+- Leitlinien für lokale Medien, konkrete Alternativtexte, native Divi-Icons und einen zurückhaltenden Glass-Eindruck ohne eigenes CSS.
+- Wiki-Seiten zu Kommandozentrale, Visual-Builder-Workflow, Medien/Barrierefreiheit sowie Rank Math.
+
+### Korrigiert
+
+- Der Skill unterscheidet jetzt klar zwischen einer belegten Projektreferenz und einer ungesicherten Leistungsbehauptung.
+
 ## [1.3.0] — 2026-06-20
 
 ### Hinzugefügt

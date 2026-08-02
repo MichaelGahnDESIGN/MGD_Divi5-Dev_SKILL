@@ -9,8 +9,9 @@ Die GitHub-Wiki wird zu einem deutschsprachigen Nachschlagewerk für Anwender, E
 1. WordPress 7: Architektur, Inhalte, Rollen, Medien, Updates, REST API, Cron und Caching.
 2. Plugin-Entwicklung: Dateistruktur, Hooks, Settings, Datenbankmigrationen, REST/AJAX, Cron, E-Mail, Sicherheit, Tests und Veröffentlichung.
 3. Divi 5: Visual Builder, Kommandozentrale, Drahtgitteransicht, native Struktur, Module, Responsive Design, Variablen, Presets, Theme Builder und Custom Modules.
-4. KI-Agenten: sichere Arbeitsreihenfolge, Schutz globaler Layouts, native-vs.-Code-Entscheidung, Medien/Alt-Texte, SEO, Backups und Abnahme.
-5. Praxisrezepte mit dokumentierten, sicheren PHP-Beispielen.
+4. Divi AI: Layout-, Text-, Bild- und Codeunterstützung, Qualitätsprüfung, Datenschutzgrenzen sowie ein sicherer Veröffentlichungsworkflow.
+5. KI-Agenten: sichere Arbeitsreihenfolge, Schutz globaler Layouts, native-vs.-Code-Entscheidung, Medien/Alt-Texte, SEO, Backups und Abnahme.
+6. Praxisrezepte mit dokumentierten, sicheren PHP-Beispielen.
 
 ## Qualitätsregeln
 
@@ -27,6 +28,7 @@ Die GitHub-Wiki wird zu einem deutschsprachigen Nachschlagewerk für Anwender, E
 - WordPress-Plugin-Entwicklung-sicher
 - Divi-5-Visual-Builder-und-Designsystem
 - Divi-5-Module-und-Erweiterungen
+- Divi-AI-sicher-einsetzen
 - KI-Agenten-Playbook-für-WordPress-und-Divi
 - Quellen-und-Pflege
 
@@ -34,5 +36,6 @@ Die GitHub-Wiki wird zu einem deutschsprachigen Nachschlagewerk für Anwender, E
 
 - Home verlinkt alle neuen Seiten.
 - Jede Seite bietet einen Abschnitt für Anwender und einen für Entwickler/KI-Agenten.
+- Die Divi-AI-Seite unterscheidet klar zwischen unterstützter Erstellung und fachlich, rechtlich sowie technisch geprüfter Veröffentlichung.
 - Mindestens zwei sichere, ausführlich kommentierte Plugin-Codebeispiele.
 - Alle GitHub-Wiki-Änderungen sind committed und in das Wiki-Repository gepusht.

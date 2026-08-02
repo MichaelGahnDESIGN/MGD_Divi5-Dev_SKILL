@@ -18,13 +18,14 @@
 
 - [ ] **Step 1: Navigation vollständig machen**
 
-Home verlinkt exakt diese Themen:
+Home verlinkt diese Themen:
 
 ```text
 WordPress 7 Grundlagen und Betrieb
 WordPress Plugin Entwicklung sicher
 Divi 5 Visual Builder und Designsystem
 Divi 5 Module und Erweiterungen
+Divi AI sicher einsetzen
 KI-Agenten Playbook für WordPress und Divi
 Quellen und Pflege
 ```
@@ -104,21 +105,26 @@ Beschreibe Drahtgitteransicht, Kommandozentrale, Elementbeschriftungen, geschüt
 
 Beschreibe Global Colors, Schriften, Abstände, Radius, Schatten und barrierefreie Kontraste als wiederverwendbares System.
 
-### Task 5: Divi-5-Module und KI-Agenten
+### Task 5: Divi-5-Module, Divi AI und KI-Agenten
 
 **Files:**
 - Create: Wiki `Divi-5-Module-und-Erweiterungen.md`
+- Create: Wiki `Divi-AI-sicher-einsetzen.md`
 - Create: Wiki `KI-Agenten-Playbook-für-WordPress-und-Divi.md`
 
 - [ ] **Step 1: Module und Erweiterungen schreiben**
 
 Erkläre native Module, Bild- und Icon-Entscheidungen, Custom Modules, Plugin-Grenzen, Builder-Kompatibilität und Tests.
 
-- [ ] **Step 2: Agenten-Playbook schreiben**
+- [ ] **Step 2: Divi-AI-Seite schreiben**
+
+Beschreibe die offiziell dokumentierten Einsatzfelder für Layouts, Texte, Bilder und Code. Trenne Ideenfindung und Veröffentlichung. Dokumentiere, dass keine sensiblen Kunden-, Zugangs- oder personenbezogenen Daten ohne geklärte Freigabe in Prompts oder Bildreferenzen gehören. Ergänze einen Qualitätscheck für Inhalt, Rechte, Barrierefreiheit, Responsive Design und SEO.
+
+- [ ] **Step 3: Agenten-Playbook schreiben**
 
 Definiere eine sichere Reihenfolge: Auftrag verstehen, Schutzbereiche feststellen, Backup prüfen, Struktur lesen, native Umsetzung, Medien/Alt-Texte, Responsive-/SEO-Prüfung, Speichern und dokumentieren.
 
-- [ ] **Step 3: Verbote und Freigabepunkte schreiben**
+- [ ] **Step 4: Verbote und Freigabepunkte schreiben**
 
 Klar nennen: keine Secrets ausgeben, keine globalen Layouts ohne Auftrag ändern, keine externen Fonts/Assets ohne Freigabe, keine ungesicherten Leistungsbehauptungen und keine produktiven Änderungen ohne Rückfallweg.
 

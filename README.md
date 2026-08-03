@@ -8,6 +8,17 @@ sicher, DSGVO-konform und kommerziell nutzbar.
 Dieser Skill ist kein Schnellschuss. Er entstand aus echter Arbeit mit WordPress, Divi und
 KI-Agenten im Agentur-Alltag von Michael Gahn DESIGN — und soll genau das widerspiegeln.
 
+## Wissensstand und Pflege
+
+Der Skill, die GitHub-Wiki und die ausführliche interne Wissensbasis werden gemeinsam gepflegt.
+Die GitHub-Wiki ist der lesbare Einstieg; der Skill enthält verbindliche Arbeitsregeln; die
+interne Wissensbasis vertieft einzelne Themen. Vor einer produktiven Änderung haben die aktuelle
+Herstellerdokumentation und die konkret geprüfte Installation immer Vorrang.
+
+Die Einstiegsbereiche der Wiki sind **nutzbar und gepflegt**, nicht bloß Platzhalter. Offene Punkte
+werden ausschließlich auf der jeweiligen Seite als konkrete Prüffrage markiert. Den vollständigen
+Abgleich beschreibt [der Wissensstand](docs/WISSENSSTAND.md).
+
 ## Für Wen Ist Dieser Skill Gedacht?
 
 - Entwickler und Designer, die mit Claude Code oder ChatGPT Codex an WordPress/Divi-Projekten arbeiten

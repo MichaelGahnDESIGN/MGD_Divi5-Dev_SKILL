@@ -2,6 +2,17 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.4.1] — 2026-08-03
+
+### Dokumentation und Pflege
+
+- Wiki-Einstieg ohne pauschale „in Arbeit“-Markierungen vervollständigt.
+- Einstiegseiten zu WordPress 7, sicherer Plugin-Entwicklung, Divi-Visual-Builder,
+  Divi-Modulen und KI-Agenten ergänzt.
+- Gemeinsamen Wissensstand für GitHub, Gitea und die interne Wissensbasis dokumentiert.
+- Sicherheitsregel für die Veröffentlichung bestätigt: keine Backups, Zugangsdaten,
+  Tokens, privaten Schlüssel, Kundendaten oder produktiven Konfigurationsdateien.
+
 ## [1.4.0] — 2026-08-02
 
 ### Hinzugefügt

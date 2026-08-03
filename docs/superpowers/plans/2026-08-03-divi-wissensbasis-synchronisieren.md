@@ -17,9 +17,9 @@
 - Create: `docs/WISSENSSTAND.md`
 - Create: `/Volumes/AI-Workspace/AI_Knowledge/08 AI WISSEN/11 - WordPress/00 - Orientierung/Wissensstand Divi und WordPress.md`
 
-- [ ] Beschreibe die verbindlichen Quellen und ordne Skill, Wiki und NAS verständlich ein.
-- [ ] Kennzeichne vorhandene Themen als nutzbar; offene Themen nur dort, wo wirklich Inhalt fehlt.
-- [ ] Halte fest, dass keine Zugangsdaten, Backups oder Kundendaten veröffentlicht werden dürfen.
+- [x] Beschreibe die verbindlichen Quellen und ordne Skill, Wiki und NAS verständlich ein.
+- [x] Kennzeichne vorhandene Themen als nutzbar; offene Themen nur dort, wo wirklich Inhalt fehlt.
+- [x] Halte fest, dass keine Zugangsdaten, Backups oder Kundendaten veröffentlicht werden dürfen.
 
 ### Task 2: Wiki-Einstieg fertigstellen
 
@@ -31,16 +31,15 @@
 - Create: `MGD_Divi5-Dev_SKILL.wiki/Divi-5-Module-und-Erweiterungen.md`
 - Create: `MGD_Divi5-Dev_SKILL.wiki/KI-Agenten-Playbook-für-WordPress-und-Divi.md`
 
-- [ ] Ersetze die irreführenden „in Arbeit“-Links durch echte, verständliche Seiten.
-- [ ] Jede neue Wiki-Seite enthält einen Nutzerteil, einen Entwickler-/Agententeil, Sicherheitsgrenzen und Links zu den ausführlichen NAS-Themen.
-- [ ] Ergänze einen einheitlichen Stand und die Quellenhierarchie.
+- [x] Ersetze die irreführenden „in Arbeit“-Links durch echte, verständliche Seiten.
+- [x] Jede neue Wiki-Seite enthält einen Nutzerteil, einen Entwickler-/Agententeil, Sicherheitsgrenzen und Links zu den ausführlichen NAS-Themen.
+- [x] Ergänze einen einheitlichen Stand und die Quellenhierarchie.
 
 ### Task 3: Repository und Remotes abgleichen
 
 **Files:**
 - Modify: `CHANGELOG.md`
 
-- [ ] Prüfe Markdown, sensible Daten und Git-Status.
-- [ ] Committe den Skill-Stand nachvollziehbar und pushe ihn nach GitHub.
-- [ ] Übernehme denselben Commit-Stand nach Gitea; ohne Zugangsdaten im Repository oder in der Dokumentation abzulegen.
-
+- [x] Prüfe Markdown, sensible Daten und Git-Status.
+- [x] Committe den Skill-Stand nachvollziehbar und pushe ihn nach GitHub.
+- [x] Übernehme denselben Commit-Stand nach Gitea; ohne Zugangsdaten im Repository oder in der Dokumentation abzulegen.

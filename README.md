@@ -220,10 +220,10 @@ Diese Daten dürfen **niemals** die lokale Maschine verlassen — weder nach Git
 | Projekt | Beschreibung |
 |---------|-------------|
 | [gvieaway_WordPress_Plugin](https://github.com/MichaelGahnDESIGN/MGD_Giveaway_WP-Plugin) | Gewinnspiel-Plugin für WordPress |
-| [MGD-AI-Project-Updater-Skill](https://github.com/MichaelGahnDESIGN/MGD_AI-Project-Updater_SKILL) | Sichere Update-Workflows für WordPress |
-| [MGD-ToDo-SKILL](https://github.com/MichaelGahnDESIGN/MGD_Todo_SKILL) | Aufgabenverwaltung direkt im Projekt-Repo |
-| [MGD-AI-Basic-Projektordner](https://github.com/MichaelGahnDESIGN/MGD_AI-Basic-Projektordner_TOOL) | Projektvorlage für KI-Agenten |
-| [MGD-DEV-Skill](https://github.com/MichaelGahnDESIGN/MGD_DEV_SKILL) | Release, Sync, Backup und Wissensdokumentation |
+| [MGD_AI-Project-Updater_SKILL](https://github.com/MichaelGahnDESIGN/MGD_AI-Project-Updater_SKILL) | Sichere Update-Workflows für WordPress |
+| [MGD_Todo_SKILL](https://github.com/MichaelGahnDESIGN/MGD_Todo_SKILL) | Aufgabenverwaltung direkt im Projekt-Repo |
+| [MGD_AI-Basic-Projektordner_TOOL](https://github.com/MichaelGahnDESIGN/MGD_AI-Basic-Projektordner_TOOL) | Projektvorlage für KI-Agenten |
+| [MGD_DEV_SKILL](https://github.com/MichaelGahnDESIGN/MGD_DEV_SKILL) | Release, Sync, Backup und Wissensdokumentation |
 
 → Alle öffentlichen Projekte: [github.com/MichaelGahnDESIGN](https://github.com/MichaelGahnDESIGN)
 

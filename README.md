@@ -91,6 +91,23 @@ git clone https://github.com/MichaelGahnDESIGN/MGD_Divi5-Dev_SKILL.git ~/.claude
 git clone https://github.com/MichaelGahnDESIGN/MGD_Divi5-Dev_SKILL.git ~/.codex/skills/MGD_Divi5-Dev_SKILL
 ```
 
+Der Skill selbst (`SKILL.md`) wird durch den Klon nach `~/.claude/skills/` automatisch
+erkannt. Die Slash-Commands (`/divi-install`, `/divi-childtheme`, …) liegen dagegen unter
+`.claude/commands/` **innerhalb** des geklonten Ordners — Claude Code durchsucht diesen
+Pfad nicht automatisch. Damit die Commands wirklich verfügbar sind, zusätzlich verlinken:
+
+```bash
+# Einmalig: Slash-Commands aus dem Skill in die globalen Commands verlinken
+mkdir -p ~/.claude/commands
+for f in ~/.claude/skills/MGD_Divi5-Dev_SKILL/.claude/commands/*.md; do
+  ln -sf "$f" ~/.claude/commands/"$(basename "$f")"
+done
+```
+
+Ohne diesen Schritt funktioniert der Skill trotzdem — Claude erkennt ihn über die
+Beschreibung in `SKILL.md` und kann ihn bei passenden Anfragen selbst laden — nur die
+festen `/divi-*`-Kürzel sind dann nicht als eigene Slash-Commands eingerichtet.
+
 Dann im Projekt-Kontext:
 
 ```text
@@ -152,8 +169,8 @@ MGD-Divi5-Dev/
 │       └── divi-canvas.md
 ├── .codex/
 │   └── commands/             ← ChatGPT Codex Commands (gleiche Dateien)
-└── skill/
-    └── DIVI5-SKILL.md        ← Vollständige Skill-Dokumentation
+└── SKILL.md                  ← Vollständige Skill-Dokumentation (muss im Repo-Root
+                                 liegen, sonst erkennt Claude Code den Skill nicht)
 ```
 
 ## Was Der Skill Enthält

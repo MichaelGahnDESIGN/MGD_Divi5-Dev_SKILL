@@ -1,6 +1,8 @@
 # Wissensstand: WordPress und Divi 5
 
-> Stand: 3. August 2026
+> Stand: 17. Oktober 2026
+
+Aktuelle Ergänzung: [Divi 5 im Oktober 2026](DIVI5-2026-10.md). GitHub und lokale Skill-Kopie werden für diesen Auftrag abgeglichen; Gitea/Wiki sind damit nicht automatisch aktualisiert.
 
 ## Wofür welche Quelle gedacht ist
 

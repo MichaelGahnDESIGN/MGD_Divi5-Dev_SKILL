@@ -2,6 +2,13 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.5.0] — 2026-10-17
+
+- Aktuelle offizielle Divi-5-Funktionen mit Quellen und Versionsabweichung dokumentiert.
+- Native Module vor Code-Modul; Helper-Plugins nur für tatsächliche Funktionslücken.
+- Gleichwertige vollständige Sicherungen, sichere Live-Diagnose und Builder-Rundlauf präzisiert.
+- Inhaltsseiten, Complianz und Grenzen rechtlicher beziehungsweise barrierefreier Freigaben ergänzt.
+
 ## [1.4.1] — 2026-08-03
 
 ### Dokumentation und Pflege

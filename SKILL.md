@@ -33,6 +33,9 @@ Diese Regeln gelten für ALLE Outputs dieses Skills — Code, Dateien, Kommentar
 ## Umgebung und Voraussetzungen
 
 ### Technischer Stack
+
+**Aktualitätsregel (17.10.2026):** Installierte Version, offizieller Release-Stand und tatsächlich geprüfte Funktionen getrennt erfassen. Die folgenden Versionsbeispiele sind keine automatische Updateempfehlung. Aktuelle Recherche und native Umsetzung: [Divi 5 – Stand Oktober 2026](docs/DIVI5-2026-10.md).
+
 - **WordPress 7.0** "Armstrong" (Mai 2026) — PHP 8.3+ empfohlen
 - **Divi 5** (React-basierter Builder, Elegant Themes)
 - **Lokale Entwicklung:** Docker oder Local by WP Engine
@@ -67,7 +70,7 @@ Direkte, sichere Arbeit im Divi-5-Visual-Builder.
 **Vor jeder Änderung:**
 
 1. Zielseite, Status und aktiven Wartungsmodus prüfen.
-2. Einen vollständigen UpdraftPlus-Rückfallpunkt prüfen oder anlegen.
+2. Einen vollständigen Rückfallpunkt für Datenbank, Dateien und benötigte Konfiguration prüfen oder anlegen: UpdraftPlus oder ein gleichwertiges, privat verschlüsselt abgelegtes Backup. Prüfsummen und Archivlesbarkeit prüfen; ein Wiederherstellungstest ist ein eigener Nachweis. Bestehende Zustimmung beachten.
 3. Globale Header-, Menü- und Footer-Layouts als geschützt behandeln, sofern der Auftrag sie nicht ausdrücklich nennt.
 4. In der Drahtgitteransicht zuerst die vorhandene Struktur lesen: Sektion → Zeile → Spalte → Gruppe → Modul.
 
@@ -75,6 +78,7 @@ Direkte, sichere Arbeit im Divi-5-Visual-Builder.
 
 - Die Kommandozentrale mit `⌘ K` (macOS) oder `Strg K` (Windows) öffnen. Sie fügt Elemente kontextabhängig ein; daher immer zuerst das richtige Modul, die richtige Zeile oder Sektion auswählen.
 - Neue Sektionen, Zeilen und Gruppen sofort in den Meta-Einstellungen eindeutig beschriften, zum Beispiel `Startseite – Wissen – Dunkel`.
+- **Native Module zuerst:** Überschrift, Text, Bild, Button, Galerie, Menü, Gruppen, Grid/Flex und passende Spezialmodule nutzen. Keine ganze Website in ein Code-Modul verpacken. Einen fehlenden Spezialbaustein in einem kleinen Helper-Plugin kapseln; Code-Modul nur bei belegter Notwendigkeit.
 - Für Seiten, die ausschließlich mit Divi umgesetzt werden sollen, nur native Divi-Elemente verwenden. Keine Custom-CSS-Klassen, keine Inline-Skripte und keine fremden Builder-Strukturen einfügen.
 - Glass-Eindrücke ausschließlich mit nativen halbtransparenten Hintergründen, feinen Rändern, Radius und dezenten Schatten erzeugen. Kontrast und Lesbarkeit gehen vor Effekt.
 - Lokale Medien aus der WordPress-Mediathek verwenden. Jedes informative Bild erhält einen konkreten Alternativtext; dekorative Icons werden als dekorativ gekennzeichnet.
@@ -788,7 +792,7 @@ Systematisches Debugging von Divi-Problemen.
 
 **Debug-Checkliste:**
 1. **Console-Fehler:** Browser DevTools → Console öffnen, alle JS-Fehler notieren
-2. **Plugin-Konflikt:** Alle Plugins bis auf Divi deaktivieren, schrittweise reaktivieren
+2. **Plugin-Konflikt:** Zuerst Konsole, betroffene Module und Versionsstand lesend prüfen. Deaktivierung/Themewechsel nur in einer isolierten Testkopie oder nach ausdrücklicher Freigabe. Nie pauschal Wartungsmodus, Datenschutz, Sicherheit oder Mailschutz im Live-Klon abschalten.
 3. **Theme-Konflikt:** Standard-WordPress-Theme aktivieren (Twenty Twenty-Four)
 4. **Divi Builder Cache:** Divi → Theme Options → Builder → Clear Cache
 5. **WordPress-Cache:** Caching-Plugin Cache leeren
@@ -800,7 +804,7 @@ Systematisches Debugging von Divi-Problemen.
 | Problem | Wahrscheinliche Ursache | Fix |
 |---------|------------------------|-----|
 | Weiße Seite / 500er | PHP-Fehler | `debug.log` prüfen |
-| Builder lädt nicht | JS-Konflikt | Console-Fehler, Plugins deaktivieren |
+| Builder lädt nicht | JS-Konflikt | Console-Fehler, Konflikt in isolierter Kopie eingrenzen |
 | CSS-Änderungen zeigen nicht | Browser-Cache | Hard Refresh (Cmd+Shift+R) |
 | Fonts werden von Google geladen | Divi-Einstellung aktiv | Divi → Theme Options → Google Fonts aus |
 | Animationen im Builder kaputt | GSAP läuft im Builder | `et-fb` / `wp-admin` Klasse prüfen |

@@ -4,6 +4,14 @@
 
 Aktuelle Ergänzung: [Divi 5 im Oktober 2026](DIVI5-2026-10.md). GitHub und lokale Skill-Kopie werden für diesen Auftrag abgeglichen; Gitea/Wiki sind damit nicht automatisch aktualisiert.
 
+## Fast-dev und Release-Abschluss · 23. Oktober 2026
+
+Version 1.6.0 ergänzt den portablen Begleit-Skill `fast-dev/` samt Befehlsvorlagen.
+README und GitHub-Wiki beschreiben Installation und Release-Abschluss.
+Der ergänzte `/divi-release`-Ablauf und der DEV-Skill unterscheiden GitHub-Release
+und WordPress-Deployment. Globale Installationen und Gitea werden durch diesen
+GitHub-Release nicht automatisch aktualisiert.
+
 ## Wofür welche Quelle gedacht ist
 
 | Ort | Aufgabe | Reifegrad |

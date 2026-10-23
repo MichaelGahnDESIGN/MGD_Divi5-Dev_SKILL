@@ -2,6 +2,14 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.6.0] — 2026-10-23
+
+- Eigenständigen `/fast-dev`-Begleit-Skill einschließlich MIT-Lizenz und Befehlsvorlagen für Claude Code und Codex ergänzt.
+- README und Wiki um Installation, kurze Divi-Playbooks und Release-Abschluss erweitert.
+- `/divi-release` erstellt bei beauftragter Veröffentlichung einen tatsächlichen GitHub-Release mit geprüftem Paket, Tag und Download-Prüfsumme; ein Website-Deployment bleibt getrennt.
+- Versionsquelle nach Projekttyp wählen und veralteten Skill-Pfad in beiden Release-Befehlsvorlagen korrigiert.
+- Release-Paket enthält auch die seit v1.3.0 auf `main` hinzugekommenen Divi-Workflows und Wissensstand-Ergänzungen.
+
 ## [1.5.0] — 2026-10-17
 
 - Aktuelle offizielle Divi-5-Funktionen mit Quellen und Versionsabweichung dokumentiert.

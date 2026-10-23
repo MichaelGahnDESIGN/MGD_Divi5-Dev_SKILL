@@ -42,6 +42,7 @@ Abgleich beschreibt [der Wissensstand](docs/WISSENSSTAND.md).
 
 | Befehl | Was passiert |
 |--------|-------------|
+| `/fast-dev` | Eigenständiger Begleit-Skill: kurzes Playbook, gezielte Prüfungen und freigegebene Veröffentlichung |
 | `/divi-install` | WordPress + Divi lokal installieren und konfigurieren |
 | `/divi-install-docker` | Docker-Entwicklungsumgebung für WordPress + Divi aufsetzen |
 | `/divi-childtheme` | Divi Child-Theme mit korrekter Struktur, lokalen Fonts und Enqueue erstellen |
@@ -149,6 +150,39 @@ Binde GSAP mit ScrollTrigger lokal ein und erstelle Scroll-Animationen
 für alle Divi-Sektionen auf der Startseite.
 ```
 
+## Schnell umsetzen mit `/fast-dev` · ab v1.6.0
+
+Der [Fast-dev-Skill](fast-dev/SKILL.md) ist im Repository und im Release-ZIP
+enthalten. Er ergänzt die Divi-Fachregeln um kurze Playbooks und kleine nutzbare
+Schritte. Native Divi-Module und Theme Builder bleiben die erste Wahl;
+Wartungsmodus, Zugriffsschutz und erforderliche Rückfallpunkte gelten weiter.
+
+Den Begleit-Skill zusätzlich als eigenen Ordner installieren (leeres Ziel;
+bestehende Anpassungen vor Updates sichern):
+
+```bash
+# Codex, nach dem obigen Klon
+cp -R ~/.codex/skills/MGD_Divi5-Dev_SKILL/fast-dev ~/.codex/skills/fast-dev
+```
+
+```bash
+# Claude Code, nach dem obigen Klon
+cp -R ~/.claude/skills/MGD_Divi5-Dev_SKILL/fast-dev ~/.claude/skills/fast-dev
+```
+
+Claude-Code-Commands mit dem oben beschriebenen Schritt verlinken; dabei wird
+auch `fast-dev.md` berücksichtigt. In Codex den installierten Skill mit
+`$fast-dev` aufrufen. `.codex/commands/fast-dev.md` ist eine Vorlage für
+Umgebungen mit Unterstützung eigener Commands. Gleichnamige Fast-dev-Kopien
+aus mehreren MGD-Repositories nur einmal installieren.
+
+- [Fast-dev im Wiki](https://github.com/MichaelGahnDESIGN/MGD_Divi5-Dev_SKILL/wiki/Fast-Dev-und-Releases)
+- [Release v1.6.0](https://github.com/MichaelGahnDESIGN/MGD_Divi5-Dev_SKILL/releases/tag/v1.6.0)
+
+`/divi-release` und der ergänzte `/dev`-Workflow schließen eine beauftragte
+Veröffentlichung mit Version, Changelog, geprüftem Paket, Tag und tatsächlichem
+GitHub-Release ab. Ein Website-Deployment bleibt ein eigener Auftrag.
+
 ## Repository-Struktur
 
 ```text
@@ -160,8 +194,10 @@ MGD-Divi5-Dev/
 ├── .github/
 │   └── ISSUE_TEMPLATE/
 │       └── bug_report.md
+├── fast-dev/                 ← Eigenständiger Skill + MIT-Lizenz
 ├── .claude/
 │   └── commands/             ← Claude Code Slash-Commands
+│       ├── fast-dev.md
 │       ├── divi-install.md
 │       ├── divi-install-docker.md
 │       ├── divi-childtheme.md

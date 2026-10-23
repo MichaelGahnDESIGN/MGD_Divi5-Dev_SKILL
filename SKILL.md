@@ -61,6 +61,19 @@ Diese Regeln gelten für ALLE Outputs dieses Skills — Code, Dateien, Kommentar
 
 ---
 
+## Schnell umsetzen mit `/fast-dev`
+
+Für ausdrücklich gewünschte zügige Umsetzung den mitgelieferten Begleit-Skill
+[fast-dev/SKILL.md](fast-dev/SKILL.md) verwenden. Er bringt ein kurzes Playbook,
+kleine nutzbare Schritte und gezielte Prüfungen mit. Diese Divi-Regeln gelten
+zusätzlich: native Module und Theme Builder zuerst; eigene Plugins nur für
+Funktionslücken. Globale Vorlagen nur im beauftragten Umfang verändern.
+Wartungsmodus, Backup, Shield/PIN und Datenschutz bleiben verbindlich.
+
+Die Installation des Begleit-Skills ist in der README beschrieben. Codex:
+`$fast-dev`; Claude Code: `/fast-dev`. Bei Release-Aufträgen den folgenden
+`/divi-release`-Ablauf und, falls installiert, `/dev` für den GitHub-Abschluss nutzen.
+
 ## Befehle
 
 ### /divi-builder
@@ -814,16 +827,33 @@ Systematisches Debugging von Divi-Problemen.
 
 ### /divi-release
 
-Versions-Bump, CHANGELOG, Deployment, Backup.
+Version, Changelog, geprüftes Paket und GitHub-Release abschließen.
+Ein Release-Auftrag ist erst mit dem veröffentlichten Release erfüllt;
+ein Commit oder Tag allein reicht nicht.
 
 **Ablauf:**
-1. Version in `style.css` erhöhen (SemVer: MAJOR.MINOR.PATCH)
-2. `CHANGELOG.md` aktualisieren mit Datum und Änderungen
-3. Git-Commit: `git commit -m "chore: v1.2.0 release"`
-4. Git-Tag: `git tag v1.2.0`
-5. Backup der Live-Umgebung erstellen (→ /divi-backup)
-6. Deployment (→ /divi-deploy)
-7. Live-Test durchführen
+1. Versionsquelle und nächste freie Version aus dem Projekt ableiten: bei Themes
+   `style.css`, bei Plugins deren Header/Paketdatei; bei Skill-Repositories die
+   bestehende Release-/Changelog-Konvention. Keine fremden Versionen ändern.
+2. Changelog und Release-Notizen abstimmen, relevante Prüfungen durchführen und
+   nach dem bestehenden Git-/PR-Verfahren den freigegebenen Commit integrieren.
+3. Nur ausgewählte Produktdateien aus diesem Commit packen. Inhalt, Installation,
+   Begleit-Skills und Lizenzen prüfen; Secrets, Backups und Testdaten ausschließen.
+4. Bei freigegebener Veröffentlichung einen neuen Tag nach Projektkonvention und
+   einen GitHub-Release mit dem geprüften Paket samt SHA-256-Prüfsumme erstellen.
+   Vorhandene Tags oder fremde Release-Assets nicht überschreiben. Bei unklarem
+   API-Ergebnis zuerst vorhandenen Release prüfen, bevor erneut angelegt wird.
+5. Release-Status, Tag/Commit und heruntergeladenes Paket prüfen; README und Wiki
+   aktualisieren. Falls `/dev` installiert ist, dessen Release-Ablauf verwenden:
+   [MGD_DEV_SKILL](https://github.com/MichaelGahnDESIGN/MGD_DEV_SKILL).
+6. Nur wenn auch ein Deployment beauftragt ist: vollständigen Rückfallpunkt vor
+   Live-Änderungen prüfen (→ `/divi-backup`), kontrolliert deployen (→ `/divi-deploy`)
+   und betroffene Seiten sichtbar prüfen. Wartungsmodus wie beauftragt erhalten.
+
+Ein reiner Skill-Release verändert keine WordPress-Installation und braucht
+keinen Datenbankexport. Der vorige Git-/Release-Stand ist sein Rückweg.
+Bei reiner Vorbereitung einen fertigen Entwurf bereitstellen und nicht ohne
+Freigabe veröffentlichen. Release und Deployment getrennt berichten.
 
 ---
 

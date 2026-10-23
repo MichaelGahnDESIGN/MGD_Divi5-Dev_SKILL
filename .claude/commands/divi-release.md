@@ -1,28 +1,18 @@
 # /divi-release
 
-Versions-Bump, CHANGELOG aktualisieren, Release-Workflow abschließen.
+Nutze die tatsächlich installierte `SKILL.md` im Stamm des Divi-Skill-Repositories,
+Abschnitt `/divi-release`. Der alte Pfad `skill/DIVI5-SKILL.md` gilt nicht mehr.
 
-## Verhalten
+1. Versionsquelle (Theme, Plugin oder Skill) und nächste freie Version bestimmen.
+2. Version, Changelog und Release-Notizen abstimmen und relevante Prüfungen ausführen.
+3. Änderungen nach Projektkonvention integrieren und den geprüften Commit festhalten.
+4. Bei beauftragter Veröffentlichung ausgewählte Produktdateien samt Lizenzen und
+   Begleit-Skills packen, prüfen und einen neuen Tag sowie GitHub-Release erstellen.
+5. Release-Status, Tag/Commit und erneut heruntergeladene Paket-Prüfsumme prüfen;
+   README und Wiki aktualisieren. Falls vorhanden den Release-Ablauf aus `/dev` nutzen.
+6. Nur bei zusätzlichem Deploy-Auftrag: Rückfallpunkt vor Live-Änderungen prüfen,
+   kontrolliert deployen und die betroffenen Seiten sichtbar prüfen.
 
-Nutze `skill/DIVI5-SKILL.md` als Arbeitsgrundlage und führe den Abschnitt `/divi-release` durch:
-
-1. Aktuelle Version ermitteln
-2. Neue Version nach SemVer bestimmen (MAJOR.MINOR.PATCH)
-3. Version in `style.css` erhöhen
-4. `CHANGELOG.md` mit Datum und Änderungen aktualisieren
-5. Git-Commit und Tag erstellen
-6. Backup erstellen (→ /divi-backup)
-7. Deployment durchführen (→ /divi-deploy)
-
-## Sicherheitsregeln
-
-- Kein Release ohne vorheriges Backup
-- Kein Force-Push auf main
-- Tag-Name immer `v` + Versionsnummer (z.B. `v1.2.0`)
-
-## Ergebnis
-
-Am Ende kurz berichten:
-- Neue Versionsnummer
-- Was sich geändert hat
-- Ob Deployment erfolgreich war
+Kein Force-Push, keine verschobenen Release-Tags, keine Secrets oder Backups im
+Paket. Wartungsmodus und Zugriffsschutz erhalten. Version, Commit, Release-URL,
+Paketprüfung und ein gegebenenfalls erfolgtes Deployment getrennt berichten.

@@ -2,6 +2,12 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.7.0] — 2026-10-23
+
+- Zentralen MGD-Plugin-Katalog für WordPress- und Divi-Aufgaben ergänzt: passende eigene Plugins werden vor Neubau oder Drittanbieterempfehlung geprüft und nachvollziehbar vorgeschlagen.
+- Versionierten JSON-Vertrag, Kompatibilitäts- und Datenschutzkriterien sowie den sicheren Adminbereich „Weitere MGD-Plugins“ dokumentiert.
+- Katalogabruf an gültiges HTTPS, Schema-Prüfung, Datenminimierung und eine bewusste Installation mit Prüfsumme gebunden.
+
 ## [1.6.1] — 2026-10-23
 
 - `/divi-debug` um eine dokumentierte Divi-5-Schutzregel für per WP-CLI/PHP geschriebene Blockinhalte ergänzt. Sie verhindert, dass `wp_update_post()` JSON-Unicode-Sequenzen wie `\u003c` entwertet und HTML-Tags als sichtbaren Text ausgibt.

@@ -823,6 +823,61 @@ Systematisches Debugging von Divi-Problemen.
 | Animationen im Builder kaputt | GSAP läuft im Builder | `et-fb` / `wp-admin` Klasse prüfen |
 | Smooth Scroll springt | Lenis + Divi Scroll-Konflikt | Divis Smooth Scroll deaktivieren |
 
+#### Divi-5-Blockinhalte per WP-CLI oder PHP speichern
+
+Divi speichert native Module als JSON in Block-Kommentaren. `wp_update_post()`
+führt intern `wp_unslash()` aus. Werden JSON-Unicode-Sequenzen wie `\u003c`
+für `<` oder `\u0022` für Anführungszeichen ohne Gegenmaßnahme gespeichert,
+kann eine Backslash-Ebene verloren gehen. Dann erscheinen beispielsweise
+`u003cpu003eTextu003c/pu003e` sichtbar im Frontend oder Token-/Stilwerte werden
+ungültig.
+
+- Für neue, programmatisch erzeugte Divi-Blockinhalte den fertigen
+  `post_content` vor `wp_update_post()` mit `wp_slash()` schützen.
+- Bei gezielten Reparaturen oder Importen direkt mit `$wpdb->update()` in
+  `post_content` schreiben, danach `clean_post_cache( $page_id )` ausführen.
+- Nie projektweit per Suchen/Ersetzen reparieren. Zuerst die betroffene Seite,
+  die Anzahl der Sequenzen und die erwartete Textstelle lesen; danach nur diese
+  Seite ändern und Frontend sowie Visual Builder prüfen.
+
+Beispiel für eine eng begrenzte Reparatur einer bekannten Seite:
+
+```php
+<?php
+// Aus WP-CLI mit `wp eval-file reparatur.php` ausführen.
+// Ersetzt nur bereits beschädigte, backslashlose Sequenzen der Zielseite.
+$page_id = 123;
+$content = get_post_field( 'post_content', $page_id );
+
+if ( strpos( $content, 'Erwartete Seitenüberschrift' ) === false ) {
+    throw new RuntimeException( 'Falsche Zielseite: Abbruch ohne Änderung.' );
+}
+
+$fixed = preg_replace(
+    array(
+        '/(?<!\\\\)u003c/',
+        '/(?<!\\\\)u003e/',
+        '/(?<!\\\\)u0026/',
+        '/(?<!\\\\)u0022/',
+    ),
+    array( '\\u003c', '\\u003e', '\\u0026', '\\u0022' ),
+    $content
+);
+
+global $wpdb;
+$wpdb->update(
+    $wpdb->posts,
+    array( 'post_content' => $fixed ),
+    array( 'ID' => $page_id ),
+    array( '%s' ),
+    array( '%d' )
+);
+clean_post_cache( $page_id );
+```
+
+Danach immer im Frontend kontrollieren, dass weder `u003c` sichtbar ist noch
+der Visual Builder beim Speichern Blockattribute umschreibt.
+
 ---
 
 ### /divi-release

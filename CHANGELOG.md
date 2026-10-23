@@ -2,6 +2,11 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.6.1] — 2026-10-23
+
+- `/divi-debug` um eine dokumentierte Divi-5-Schutzregel für per WP-CLI/PHP geschriebene Blockinhalte ergänzt. Sie verhindert, dass `wp_update_post()` JSON-Unicode-Sequenzen wie `\u003c` entwertet und HTML-Tags als sichtbaren Text ausgibt.
+- Eng begrenztes Reparaturbeispiel mit `$wpdb->update()`, Cache-Leerung und anschließender Frontend-/Visual-Builder-Prüfung ergänzt.
+
 ## [1.6.0] — 2026-10-23
 
 - Eigenständigen `/fast-dev`-Begleit-Skill einschließlich MIT-Lizenz und Befehlsvorlagen für Claude Code und Codex ergänzt.

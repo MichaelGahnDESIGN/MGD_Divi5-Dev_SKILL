@@ -15,7 +15,7 @@
 **Files:**
 - Modify: `README.md`
 - Create: `docs/WISSENSSTAND.md`
-- Create: `/Volumes/AI-Workspace/AI_Knowledge/08 AI WISSEN/11 - WordPress/00 - Orientierung/Wissensstand Divi und WordPress.md`
+- Create: `<WISSENSBASIS>/08 AI WISSEN/11 - WordPress/00 - Orientierung/Wissensstand Divi und WordPress.md`
 
 - [x] Beschreibe die verbindlichen Quellen und ordne Skill, Wiki und NAS verständlich ein.
 - [x] Kennzeichne vorhandene Themen als nutzbar; offene Themen nur dort, wo wirklich Inhalt fehlt.

@@ -151,3 +151,21 @@ Form: immer `<pfad>.desktop.value.<feld>`, weitere Bildschirmgrößen als `phone
 - **Vollständigen Elementor-HTML-Code holen:** Die Markdown-Auszüge kürzen ihn. Vollständig steht er in `wp_postmeta._elementor_data` (JSON), Widget `widgetType:"html"`, Feld `settings.html`. Aus einem SQL-Dump lesen und MySQL-Escapes sauber entfernen (`\\`→`\`, `\'`→`'`, `\"`→`"`, `\n`→Zeilenumbruch) **in einem Durchgang**, sonst bricht das JSON.
 - **Vor der Übernahme prüfen und säubern:** externe Adressen suchen (`fonts.googleapis.com` entfernen, DSGVO), Bild-Adressen auf die Ziel-Seite umstellen, keine Netzwerk-Aufrufe (`fetch`, `XMLHttpRequest`) zulassen, die ungewollt Daten senden.
 - **Änderungen mit Absicherung:** Ersetzungen per Regex mit erwarteter Trefferzahl; stimmt die Zahl nicht, bricht das Skript ab. Das hat eine falsche Annahme (5 statt 7 Treffer) und ein Datumsproblem früh gezeigt. Datum prüfen: gleicher Wochentag (22.04.2027 ist Donnerstag, 23.04.2027 Freitag).
+
+## Design-Feinschliff nach Messung ✅ (28.10.2026, 11 Seiten, Divi 5.18)
+
+Regeln, die sich bewährt haben (alle per `getComputedStyle` an 1280 und 375 px gemessen):
+
+| Bereich | Wert | Pfad |
+|---|---|---|
+| Fließtext | 17 px (Handy 16), Zeilenhöhe 1.7 | `content.decoration.bodyFont.body.font.desktop.value.{size,lineHeight:"1.7em"}`, `…phone.value.size` |
+| Zeilenlänge | max. 760 px bei Volltext-Spalte (ca. 70 bis 90 Zeichen) | `module.decoration.sizing.desktop.value.maxWidth` |
+| Überschriften | Zeilenhöhe 1.2 | `title.decoration.font.font.desktop.value.lineHeight:"1.2em"` |
+| Buttons | 17 px, Zeilenhöhe 2.6em ergibt 58 px Höhe (Padding ist beim Button ausgeblendet) | `button.decoration.font.font.desktop.value.{size,lineHeight}` |
+| Abstände | Abschnitt 80 px (Handy 48), Zeilen-Spaltenabstand 32 px | `module.decoration.spacing`, `module.decoration.layout.desktop.value.columnGap` |
+| Kontrast | mindestens 4.5:1. Weiß auf helles Pink (#EB2A88) hat nur 4.0, Pink auf Dunkelviolett 3.8 | helle Buttons: Hintergrund weiß, Schrift dunkel; kleiner Pink-Text auf dunkel: helleres Pink |
+
+- **Messen statt schätzen:** Kontrast aus der berechneten Vorder- und Hintergrundfarbe (Luminanz-Formel), Hintergrund durch Aufstieg im DOM bis zur ersten nicht-transparenten Farbe.
+- **Skript-Weg:** Alle Blöcke einer Seite per Regex parsen, Werte setzen, mit Zählern und Sicherung zurückschreiben (`design_feinschliff.py`). Spalten-Typ über einen Stapel mitführen, um nur Volltext-Spalten zu begrenzen.
+- ⚠️ Maskierte Anführungszeichen: Beim Suchen nach Variablen-Strings im JSON-Text die maskierte Form (`json.dumps(s)[1:-1]`) verwenden, sonst findet die Suche nichts und meldet trotzdem Erfolg. Immer die Trefferzahl prüfen.
+- ⚠️ Der Browser-Bereich zeigt Desktop-Breiten stark verkleinert. Für den Blick auf Design die Handy-Breite oder Zahlen nutzen.

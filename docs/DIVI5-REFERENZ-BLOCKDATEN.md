@@ -169,3 +169,10 @@ Regeln, die sich bewährt haben (alle per `getComputedStyle` an 1280 und 375 px 
 - **Skript-Weg:** Alle Blöcke einer Seite per Regex parsen, Werte setzen, mit Zählern und Sicherung zurückschreiben (`design_feinschliff.py`). Spalten-Typ über einen Stapel mitführen, um nur Volltext-Spalten zu begrenzen.
 - ⚠️ Maskierte Anführungszeichen: Beim Suchen nach Variablen-Strings im JSON-Text die maskierte Form (`json.dumps(s)[1:-1]`) verwenden, sonst findet die Suche nichts und meldet trotzdem Erfolg. Immer die Trefferzahl prüfen.
 - ⚠️ Der Browser-Bereich zeigt Desktop-Breiten stark verkleinert. Für den Blick auf Design die Handy-Breite oder Zahlen nutzen.
+
+## Hintergrundbild, Bildreihe, Schriftgewicht ✅ (28.10.2026, Divi 5.18)
+
+- **Hintergrundbild einer Sektion:** `module.decoration.background.desktop.value` = `{"color":"<Farbe>","image":{"url":"…","size":"cover","position":"center","repeat":"no-repeat"}}`. Divi schreibt daraus `background-image:url(...)!important` plus `cover`, `center`, `no-repeat`. Die Farbe bleibt als Fallback darunter. Ein dunkles Netz-Bild als Hero-Hintergrund bleibt lesbar mit weißem Text.
+- **Karussell ersetzen:** Elementor-Karussells als feste Karten (zwei Spalten mit Überschrift und Text) und Bildreihe (drei Spalten mit Bild) nachbauen, das ist zugänglicher und braucht kein JavaScript. Die Texte stehen im Elementor-JSON (`nested-carousel` → `elements` → `heading`).
+- **Zwei-Spalten-Hero mit Siegel:** links Texte, rechts Bild (`maxWidth` 320 px), mobil untereinander.
+- ⚠️ **Roboto wirkt zu fett:** Divi setzt das Fließtext-Gewicht (Customizer) auf 500. Hat man nur Regular (400) und Bold (700) lokal, nimmt der Browser für 500 die Bold-Datei. Lösung: Fließtext per CSS auf 400 setzen (`body,.et_pb_text p,.et_pb_text li{font-weight:400}`) oder eine Datei für 500 bereitstellen. Immer `getComputedStyle(...).fontWeight` prüfen.

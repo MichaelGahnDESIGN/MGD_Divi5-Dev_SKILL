@@ -136,3 +136,11 @@ Form: immer `<pfad>.desktop.value.<feld>`, weitere Bildschirmgrößen als `phone
 - **Spaltenbreite Tablet:** `sizing.tablet.value.flexType` änderte die Breite bei 768 px nicht, `layout.tablet.flexWrap` wirkt aber. Bei 6 Spalten bleibt es dort bei 6 pro Reihe (128 px). ⚠️ Für Tablet-Raster ggf. `tabletWide` oder Breite in Prozent testen.
 - `layout.desktop.value.alignItems:"center"` richtet Logos unterschiedlicher Höhe mittig aus.
 - Zum Prüfen: `scrollWidth == innerWidth` (kein seitliches Überlaufen), `getComputedStyle` für Größen, Logos nach Scrollen laden (Lazy Loading), danach Bild ansehen.
+
+## Neue Seiten per Skript und Agenten: Erkenntnisse (28.10.2026)
+
+- ⚠️ **Divi-Markierung `_et_pb_use_builder`:** Über den Anwendungs-Zugang (Basic Auth) ist dieses Meta-Feld weder lesbar noch dauerhaft schreibbar. Eine Seite ohne Markierung zeigt keine Hintergrundfarben und liegt im normalen Seiteninhalt. **Lösung:** nach dem Anlegen im eingeloggten Browser `POST /wp-json/wp/v2/pages/<ID>` mit `{"meta":{"_et_pb_use_builder":"on"}}` (Cookie plus `X-WP-Nonce`), danach prüfen, dass die Abschnitte unter `.et_builder_inner_content` liegen.
+- **Gemeinsame Bibliothek** (`seiten_lib.py`): Farb-Variablen, responsive Überschriften (Desktop, Tablet 80 %, Handy 58 %), Abschnitt/Zeile/Knopf/Bild/Symbolliste, Entwurf anlegen oder aktualisieren. Seiten-Skripte liegen unter `scripts/seiten/<slug>.py`.
+- **Agenten einsetzen:** pro Gruppe ein Auftrag mit fester Bibliothek, Quellordner, Verboten (nur neue Dateien, nur eigene Entwürfe) und Prüfpunkten. Die Agenten-Prüfung ersetzt nie die eigene: Hier hatten alle zehn Seiten fälschlich weiße Hintergründe, obwohl die Agenten „geprüft" meldeten.
+- **Prüfung vieler Seiten:** verstecktes `iframe` pro Seite und Breite (1280 und 375) mit `max-width:none`, Übergänge abschalten, Abschnitte, Hintergründe, `h1`-Größe, Überlauf, kaputte Zeichen und Bilder messen. In Blöcken von 2 bis 4 Seiten, sonst Zeitüberschreitung. Das Browser-Fenster muss breiter als der Test sein, sonst gilt der Handy-Umbruch.
+- Server trennt bei großen POSTs manchmal die Verbindung (`RemoteDisconnected`): Wiederholen genügt.

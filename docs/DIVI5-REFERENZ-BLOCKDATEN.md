@@ -176,3 +176,10 @@ Regeln, die sich bewährt haben (alle per `getComputedStyle` an 1280 und 375 px 
 - **Karussell ersetzen:** Elementor-Karussells als feste Karten (zwei Spalten mit Überschrift und Text) und Bildreihe (drei Spalten mit Bild) nachbauen, das ist zugänglicher und braucht kein JavaScript. Die Texte stehen im Elementor-JSON (`nested-carousel` → `elements` → `heading`).
 - **Zwei-Spalten-Hero mit Siegel:** links Texte, rechts Bild (`maxWidth` 320 px), mobil untereinander.
 - ⚠️ **Roboto wirkt zu fett:** Divi setzt das Fließtext-Gewicht (Customizer) auf 500. Hat man nur Regular (400) und Bold (700) lokal, nimmt der Browser für 500 die Bold-Datei. Lösung: Fließtext per CSS auf 400 setzen (`body,.et_pb_text p,.et_pb_text li{font-weight:400}`) oder eine Datei für 500 bereitstellen. Immer `getComputedStyle(...).fontWeight` prüfen.
+
+## Alte Seiten durch Entwürfe ersetzen ✅ (28.10.2026, 11 Seiten auf Dev)
+
+- **Inhalt in die alte Seite kopieren, nicht Adressen tauschen:** ID, Adresse, Titel, SEO (Rank Math) und Menü bleiben. Ablauf je Seite: alten Stand als JSON sichern, Inhalt des Entwurfs per REST in die alte ID schreiben, Divi-Markierung `_et_pb_use_builder = on` im Browser setzen, unter der echten Adresse prüfen (Abschnitte, Hintergründe, `h1`, Überlauf, Leck, Bilder, Roboto), Entwurf in den Papierkorb.
+- **Startseite:** Die Seite mit `page-id-…` im Body-Klassenattribut ist die eingestellte Startseite. Inhalt in diese ID schreiben, der SEO-Titel bleibt.
+- **Sprungziele (Anker):** Die alte Seite hatte `#aussteller` und `#stage1`. Die CSS-ID-Einstellung von Divi 5 ist nicht belegt, deshalb ein Code-Modul `<span id="…" style="display:block;position:relative;top:-90px;visibility:hidden;height:0"></span>` als erstes Element im ersten Abschnitts-Modul setzen und per `document.getElementById` prüfen. Menü-Links und Buttons mit `#…` vorher auf fehlende Ziele prüfen.
+- **zsh-Falle:** In Schleifen `read a b <<<` oder Here-Doc verwenden, `set -- $p` teilt in zsh nicht auf.

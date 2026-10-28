@@ -127,3 +127,12 @@ Form: immer `<pfad>.desktop.value.<feld>`, weitere Bildschirmgrößen als `phone
 - **Bild mit Link und Maximalbreite:** `image.innerContent.desktop.value.{src,alt,linkUrl}` und `module.decoration.sizing.desktop.value.maxWidth`.
 - **Erweitern statt neu erzeugen:** Entwurf per REST lesen, Block-JSON parsen und mit `json.dumps(…, ensure_ascii=False)` ohne Escapes zurückschreiben, neue Sektionen/Zeilen vor dem Ende der Ziel-Sektion einsetzen (Suche über `adminLabel`). Vorher Sicherung in eine Datei. Skript: `home_erweitern.py` im Projekt.
 - ⚠️ Beim Zurückschreiben nie Rohtext mit `<` senden, das verliert den Backslash (siehe oben).
+
+## Responsive-Werte: geprüft ✅ (28.10.2026, Divi 5.18)
+
+- Weitere Bildschirmgrößen stehen neben `desktop`: `tablet`, `phone` (auch `phoneWide`, `tabletWide`). Messbar an 768 px (Tablet) und 375 px (Handy).
+- **Schriftgröße:** `title.decoration.font.font.tablet.value.size` und `.phone.value.size` wirken (Beispiel 64 px Desktop, 51 px Tablet, 37 px Handy).
+- **Spaltenbreite Handy:** `module.decoration.sizing.phone.value.flexType` `8_24` zeigt 3 Spalten pro Reihe, wenn die Zeile mobil `flexWrap:wrap` hat. ✅
+- **Spaltenbreite Tablet:** `sizing.tablet.value.flexType` änderte die Breite bei 768 px nicht, `layout.tablet.flexWrap` wirkt aber. Bei 6 Spalten bleibt es dort bei 6 pro Reihe (128 px). ⚠️ Für Tablet-Raster ggf. `tabletWide` oder Breite in Prozent testen.
+- `layout.desktop.value.alignItems:"center"` richtet Logos unterschiedlicher Höhe mittig aus.
+- Zum Prüfen: `scrollWidth == innerWidth` (kein seitliches Überlaufen), `getComputedStyle` für Größen, Logos nach Scrollen laden (Lazy Loading), danach Bild ansehen.

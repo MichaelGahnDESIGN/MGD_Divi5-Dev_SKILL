@@ -144,3 +144,10 @@ Form: immer `<pfad>.desktop.value.<feld>`, weitere Bildschirmgrößen als `phone
 - **Agenten einsetzen:** pro Gruppe ein Auftrag mit fester Bibliothek, Quellordner, Verboten (nur neue Dateien, nur eigene Entwürfe) und Prüfpunkten. Die Agenten-Prüfung ersetzt nie die eigene: Hier hatten alle zehn Seiten fälschlich weiße Hintergründe, obwohl die Agenten „geprüft" meldeten.
 - **Prüfung vieler Seiten:** verstecktes `iframe` pro Seite und Breite (1280 und 375) mit `max-width:none`, Übergänge abschalten, Abschnitte, Hintergründe, `h1`-Größe, Überlauf, kaputte Zeichen und Bilder messen. In Blöcken von 2 bis 4 Seiten, sonst Zeitüberschreitung. Das Browser-Fenster muss breiter als der Test sein, sonst gilt der Handy-Umbruch.
 - Server trennt bei großen POSTs manchmal die Verbindung (`RemoteDisconnected`): Wiederholen genügt.
+
+## Code-Modul und Elementor-HTML-Widgets übernehmen ✅ (28.10.2026, Divi 5.18)
+
+- **Code-Modul:** `wp:divi/code {"content":{"innerContent":{"desktop":{"value":"<style>…</style><div>…</div><script>…</script>"}}}}`. Style, HTML und Script laufen auf der Seite (geprüft an einem Agenda-Werkzeug und einem Bild-Generator mit Canvas).
+- **Vollständigen Elementor-HTML-Code holen:** Die Markdown-Auszüge kürzen ihn. Vollständig steht er in `wp_postmeta._elementor_data` (JSON), Widget `widgetType:"html"`, Feld `settings.html`. Aus einem SQL-Dump lesen und MySQL-Escapes sauber entfernen (`\\`→`\`, `\'`→`'`, `\"`→`"`, `\n`→Zeilenumbruch) **in einem Durchgang**, sonst bricht das JSON.
+- **Vor der Übernahme prüfen und säubern:** externe Adressen suchen (`fonts.googleapis.com` entfernen, DSGVO), Bild-Adressen auf die Ziel-Seite umstellen, keine Netzwerk-Aufrufe (`fetch`, `XMLHttpRequest`) zulassen, die ungewollt Daten senden.
+- **Änderungen mit Absicherung:** Ersetzungen per Regex mit erwarteter Trefferzahl; stimmt die Zahl nicht, bricht das Skript ab. Das hat eine falsche Annahme (5 statt 7 Treffer) und ein Datumsproblem früh gezeigt. Datum prüfen: gleicher Wochentag (22.04.2027 ist Donnerstag, 23.04.2027 Freitag).

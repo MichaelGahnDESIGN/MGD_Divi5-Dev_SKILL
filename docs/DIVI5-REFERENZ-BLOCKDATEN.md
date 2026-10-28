@@ -118,3 +118,12 @@ Form: immer `<pfad>.desktop.value.<feld>`, weitere Bildschirmgrößen als `phone
 ⚠️ Nicht wirksam: `button.decoration.spacing` (Innenabstand des Buttons, Padding ist beim Button ausgeblendet) und `button.decoration.boxShadow`. Presets und Variablen sind noch nicht geprüft.
 
 **Arbeitsweise, die sich bewährt hat:** Bestehende Seite mit einem kleinen Skript im angemeldeten Browser nachträglich verfeinern: `content.raw` lesen, jeden Block per Regex `<!-- wp:divi/NAME {JSON} (/)?-->` parsen, Einstellungen ergänzen, mit `JSON.stringify` zurückschreiben. Vorher Sicherung (Inhalt in `localStorage` oder Datei). Nach dem Speichern per `getComputedStyle` in der Vorschau messen. Der Vorschau-Bildschirm kann schmaler als 768 px sein: dann gelten die `phone`-Werte.
+
+## Tabs, Video, 6-Spalten-Raster: geprüft ✅ (28.10.2026, Divi 5.18)
+
+- **Tabs:** `<!-- wp:divi/tabs {} -->` mit Kindern `wp:divi/tab {"title":{"innerContent":{"desktop":{"value":"Stage 1"}}},"content":{"innerContent":{"desktop":{"value":"<p>…</p>"}}}}`. Rendert Reiter und Inhalt.
+- **Video:** `wp:divi/video {"video":{"innerContent":{"desktop":{"value":{"src":"https://www.youtube.com/watch?v=ID"}}}}}`. Das Frontend nutzt `data-src` (Lazy/Consent), YouTube wird erst nach Zustimmung geladen.
+- **Zeile mit 6 Spalten:** `columnStructure` `1_6,1_6,1_6,1_6,1_6,1_6`, `flexColumnStructure` `equal-columns_6`, Spalte `module.advanced.type` `1_6` und `sizing.flexType` `4_24`. Mobil `flexWrap:wrap`.
+- **Bild mit Link und Maximalbreite:** `image.innerContent.desktop.value.{src,alt,linkUrl}` und `module.decoration.sizing.desktop.value.maxWidth`.
+- **Erweitern statt neu erzeugen:** Entwurf per REST lesen, Block-JSON parsen und mit `json.dumps(…, ensure_ascii=False)` ohne Escapes zurückschreiben, neue Sektionen/Zeilen vor dem Ende der Ziel-Sektion einsetzen (Suche über `adminLabel`). Vorher Sicherung in eine Datei. Skript: `home_erweitern.py` im Projekt.
+- ⚠️ Beim Zurückschreiben nie Rohtext mit `<` senden, das verliert den Backslash (siehe oben).

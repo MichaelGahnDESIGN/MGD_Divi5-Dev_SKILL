@@ -77,3 +77,14 @@ Quellen: https://help.elegantthemes.com/en/articles/17438180-components-in-divi-
 - Im Variablenmanager (linke Leiste, Datenbank-Symbol): Speichern = blauer Knopf **„Variablen“** unten (danach Bestätigung „Änderungen übernehmen“). **„Änderungen“ verwirft** alles. Ein Barrierefreiheits-Widget kann diese Knöpfe verdecken.
 - Farbfeld: Hex per Dreifachklick markieren, tippen, Enter. Bei leerem Feld direkt in das Textfeld „Farbe auswählen“ tippen.
 - ⚠️ Nach dem Speichern war nur die Primärfarbe sitewide geändert (`#d9076d`), die anderen vier blieben Standard, und beim erneuten Öffnen fehlte die Gruppe „Farben“ im Manager. Vor Änderungen am Design-System immer UpdraftPlus-Rückfallpunkt anlegen und nach dem Speichern per Frontend (`--gcid-…`) und Neuladen des Builders prüfen.
+
+## Variablen im Blockcode verwenden: geprüft ✅ (28.10.2026, Divi 5.18)
+
+Statt `"#D9076D"` steht als Farbwert im Block-JSON der String
+`$variable({"type":"color","value":{"name":"gcid-primary-color","settings":{}}})$`.
+
+- Per REST schicken wie jeden Text (Anführungszeichen im String normal). WordPress speichert sie als `"`, Divi löst sie danach zu `var(--gcid-…)` im CSS auf (Frontend geprüft).
+- Eigene Farben haben zufällige IDs (`gcid-m48gh1ymzu`). IDs aus den `--gcid-…`-Variablen im Frontend ablesen und mit den Namen im Variablenmanager abgleichen.
+- Umstellen einer bestehenden Seite: Blöcke per Regex parsen, jeden Hex-String per Karte (Hex → Variablenname) ersetzen, wieder serialisieren. 54 Farben in einem Durchgang, danach 0 feste Hex-Werte.
+- Prüfen: Computed-Farben der Abschnitte, Überschriften, Buttons in der Vorschau messen. ⚠️ Der Browser-Bereich zeichnet CSS-Übergänge (`transition: all .2s`) verzögert. Direkt nach dem Laden stehen dann falsche Werte da (leerer Button-Hintergrund). Zur Sicherheit scrollen, kurz warten und ein Bild machen.
+- ⚠️ Einblend-Animation (`module.decoration.animation`) auf Buttons: Das Modul bleibt bei `opacity:0`, solange der Scroll-Trigger nicht feuert. Auf Buttons deshalb weglassen oder im echten Browser prüfen.

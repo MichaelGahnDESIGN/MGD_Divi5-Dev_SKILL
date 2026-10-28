@@ -2,6 +2,12 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.9.0] — 2026-10-28
+
+- Vier neue Docs: echte Blockdaten und REST-Fallen (an Dev-Installation Divi 5.18 geprüft), Werkzeuge (Kommandozentrale, Canvas, Schichten, Inspektor), Variablen/Presets/Komponenten, Katalog aller Modul-Einstellungen (113 Module aus dem Schema).
+- `SKILL.md`: Kernregeln 9 bis 12 (kein Vorab-Escapen per REST, `_et_pb_use_builder`, Modul-Einstellungen, Builder-Werkzeuge).
+- Offen und gekennzeichnet: Datenformat von Variablen/Presets nur aus Drittquellen, Wertformen für Spacing/Border/Animation sind Annahmen.
+
 ## [1.8.0] — 2026-10-28
 
 - Vier quellenbelegte Recherche-Dokumente zu Divi 5 ergänzt: Blockformat, Funktionen und Releases (5.0 bis 5.17), Automatisierung (REST, WordPress-MCP, Abilities) sowie Module und Developer-Doku. Belegtes, Vermutetes und Offenes ist jeweils gekennzeichnet.

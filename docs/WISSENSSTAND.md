@@ -2,6 +2,10 @@
 
 > Stand: 28. Oktober 2026
 
+## Divi-5-Werkzeuge und Blockdaten · 28. Oktober 2026
+
+Neu: [Blockdaten und REST-Fallen](DIVI5-REFERENZ-BLOCKDATEN.md), [Werkzeuge](DIVI5-WERKZEUGE.md), [Variablen, Presets, Komponenten](DIVI5-VARIABLEN-PRESETS-KOMPONENTEN.md), [Katalog Modul-Einstellungen](DIVI5-MODUL-EINSTELLUNGEN.md). Belegt an echter Dev-Installation (5.18.0): Startseiten-Entwurf mit Farben, Schrift, Buttons, Links und Bildern gerendert. Offen: Variablen-/Preset-Format am echten Stand prüfen.
+
 ## Divi-5-Recherche · 28. Oktober 2026
 
 Vier neue Dokumente in diesem Ordner: [Blockformat](DIVI5-BLOCKFORMAT.md), [Funktionen und Releases](DIVI5-FUNKTIONEN-UND-RELEASES.md), [Automatisierung](DIVI5-AUTOMATISIERUNG.md), [Module und Developer-Doku](DIVI5-MODULE-UND-DEVELOPER.md).

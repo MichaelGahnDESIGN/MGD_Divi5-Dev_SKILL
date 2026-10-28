@@ -919,6 +919,7 @@ Freigabe veröffentlichen. Release und Deployment getrennt berichten.
 
 Ausführliche, quellenbelegte Recherche liegt in `docs/`:
 [Blockformat](docs/DIVI5-BLOCKFORMAT.md) · [Funktionen und Releases](docs/DIVI5-FUNKTIONEN-UND-RELEASES.md) · [Automatisierung](docs/DIVI5-AUTOMATISIERUNG.md) · [Module und Developer-Doku](docs/DIVI5-MODULE-UND-DEVELOPER.md)
+Neu 28.10.2026 (zweite Runde, an echter Dev-Installation geprüft): [Echte Blockdaten und REST-Fallen](docs/DIVI5-REFERENZ-BLOCKDATEN.md) · [Werkzeuge: Kommandozentrale, Canvas, Schichten, Inspektor](docs/DIVI5-WERKZEUGE.md) · [Variablen, Presets, Komponenten](docs/DIVI5-VARIABLEN-PRESETS-KOMPONENTEN.md) · [Katalog aller Modul-Einstellungen](docs/DIVI5-MODUL-EINSTELLUNGEN.md)
 
 **Kernregeln:**
 
@@ -930,6 +931,10 @@ Ausführliche, quellenbelegte Recherche liegt in `docs/`:
 6. **KI-Agent von Divi** (ab 5.12): braucht Abo, sendet Seiteninhalte über OpenRouter an Drittanbieter. Für Kundenprojekte erst DSGVO und AVV klären.
 7. **Divi-4-Seiten nie vor dem Migrator im Divi-5-Builder öffnen.** Sie werden sonst sofort ohne Rollback umgewandelt.
 8. **Neu in 5.15 / 5.17:** Components und Slots, Icon Manager. Erst auf Staging testen.
+9. **Per REST niemals `<`, `>`, `&` vorab als `\u003c` schicken.** WordPress entfernt den Backslash, im Text steht dann `u003c`. Rohzeichen schicken, WordPress/Divi escapen beim Speichern selbst. Danach `content.raw` prüfen.
+10. **Seite erst mit `_et_pb_use_builder = on` eine Divi-Seite.** Sonst greifen Hintergrundfarben nicht. Seite einmal über "Den Divi Builder verwenden" öffnen. Blöcke in `wp:divi/placeholder` einpacken.
+11. **Modul-Einstellungen vollständig nutzen:** Pfade stehen in `docs/DIVI5-MODUL-EINSTELLUNGEN.md` (Regel: `attrName` + `.desktop.value.` + `subName`). Abstände, Rahmen, Schatten, Animation sind dort teils ⚠️ Annahme: einmal im Builder bauen und gegen `content.raw` prüfen.
+12. **Werkzeuge im Builder:** Kommandozentrale (Cmd/Strg+K, Operatoren `>` `^` `+`), Layers/Wireframe, Inspector (Styles/Content/Presets), Variablen-, Preset-, Komponenten-Manager, Canvases. Presets und Variablen zentral planen, bevor Seiten gebaut werden.
 
 ---
 

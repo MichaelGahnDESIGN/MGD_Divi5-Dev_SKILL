@@ -96,3 +96,25 @@ Die Bildschirmanzeige hinkt dem echten Zustand oft hinterher. Verlässlich ist d
    - Sektion: `module.decoration.background.desktop.value.color`, Name im Builder: `module.meta.adminLabel.desktop.value`
 7. **Zeilen mit 3 und 4 Spalten** (`1_3,1_3,1_3` / `1_4,...`, `flexType` `8_24` / `6_24`) funktionieren, auch ohne Referenz aus dem Builder.
 8. **Der Builder-Bildschirm hinkt hinterher.** Verlässlich ist nur `content.raw` der gespeicherten Seite.
+
+## Geprüfte Modul-Einstellungen (an der Vorschau gemessen, 28.10.2026, Divi 5.18)
+
+Form: immer `<pfad>.desktop.value.<feld>`, weitere Bildschirmgrößen als `phone`, `phoneWide`, `tablet` daneben.
+
+| Wirkung | Pfad | Wert | Ergebnis |
+|---|---|---|---|
+| Abstand innen (Sektion) | `module.decoration.spacing` | `{padding:{top:"80px",bottom:"80px",syncVertical:"on"}}`, `phone` extra | ✅ |
+| Abstand zwischen Spalten, Ausrichtung | `module.decoration.layout` (Zeile) | `columnGap`, `rowGap`, `alignItems:"center"` | ✅ |
+| Rundung Bild | `image.decoration.border` | `{radius:{sync:"on",topLeft:"12px",...}}` | ✅ |
+| Rundung Button | `button.decoration.border` | wie oben | ✅ |
+| Rundung + Schatten Countdown | `module.decoration.border` / `module.decoration.boxShadow` | Schatten `{style:"preset1",horizontal,vertical,blur,spread,color}` | ✅ |
+| Schatten Button | `module.decoration.boxShadow` (NICHT `button.decoration.boxShadow`) | wie oben | ✅ |
+| Mindestbreite Button | `button.decoration.sizing` | `{minWidth:"200px"}` | ✅ |
+| Max. Breite Bild | `module.decoration.sizing` | `{maxWidth:"220px"}` | ✅ |
+| Hintergrund Countdown | `module.decoration.background` | `{color:"#D9076D"}` | ✅ |
+| Innenabstand Countdown | `module.decoration.spacing` | `{padding:{top,right,bottom,left}}` | ✅ |
+| Einblend-Animation | `module.decoration.animation` | `{style:"fade",direction:"bottom",duration:"700ms",delay:"0ms",intensity:"12%",repeat:"once",speedCurve:"ease-out",startingOpacity:"0%"}` | ✅ (Klasse `et_animated` gesetzt) |
+
+⚠️ Nicht wirksam: `button.decoration.spacing` (Innenabstand des Buttons, Padding ist beim Button ausgeblendet) und `button.decoration.boxShadow`. Presets und Variablen sind noch nicht geprüft.
+
+**Arbeitsweise, die sich bewährt hat:** Bestehende Seite mit einem kleinen Skript im angemeldeten Browser nachträglich verfeinern: `content.raw` lesen, jeden Block per Regex `<!-- wp:divi/NAME {JSON} (/)?-->` parsen, Einstellungen ergänzen, mit `JSON.stringify` zurückschreiben. Vorher Sicherung (Inhalt in `localStorage` oder Datei). Nach dem Speichern per `getComputedStyle` in der Vorschau messen. Der Vorschau-Bildschirm kann schmaler als 768 px sein: dann gelten die `phone`-Werte.

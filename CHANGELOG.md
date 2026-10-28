@@ -2,6 +2,13 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.8.0] — 2026-10-28
+
+- Vier quellenbelegte Recherche-Dokumente zu Divi 5 ergänzt: Blockformat, Funktionen und Releases (5.0 bis 5.17), Automatisierung (REST, WordPress-MCP, Abilities) sowie Module und Developer-Doku. Belegtes, Vermutetes und Offenes ist jeweils gekennzeichnet.
+- Neuer Abschnitt "Seiten programmatisch erzeugen" in `SKILL.md` mit acht Kernregeln (Referenzseite zuerst, Entwurf statt Live, JSON-Escapes, Quellen trennen, Cache, Divi-KI-Datenschutz, Migrator, neue Funktionen).
+- `/divi-module`: Hinweis auf Abweichungen zur offiziellen Developer-Doku (Registrierung, `module.json`-Schlüssel, `render_callback`).
+- `docs/WISSENSSTAND.md` aktualisiert.
+
 ## [1.7.0] — 2026-10-23
 
 - Zentralen MGD-Plugin-Katalog für WordPress- und Divi-Aufgaben ergänzt: passende eigene Plugins werden vor Neubau oder Drittanbieterempfehlung geprüft und nachvollziehbar vorgeschlagen.

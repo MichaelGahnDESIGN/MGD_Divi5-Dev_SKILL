@@ -915,6 +915,24 @@ Freigabe veröffentlichen. Release und Deployment getrennt berichten.
 
 ---
 
+## Seiten programmatisch erzeugen (Stand 28.10.2026)
+
+Ausführliche, quellenbelegte Recherche liegt in `docs/`:
+[Blockformat](docs/DIVI5-BLOCKFORMAT.md) · [Funktionen und Releases](docs/DIVI5-FUNKTIONEN-UND-RELEASES.md) · [Automatisierung](docs/DIVI5-AUTOMATISIERUNG.md) · [Module und Developer-Doku](docs/DIVI5-MODULE-UND-DEVELOPER.md)
+
+**Kernregeln:**
+
+1. **Format lernen, nicht raten.** Elegant Themes beschreibt das Block-Markup (`<!-- wp:divi/... {JSON} -->`) nicht vollständig. Vor dem Erzeugen von Seiten zuerst eine Referenzseite im Visual Builder bauen, `post_content` per REST (`context=edit`) auslesen und als Vorlage nutzen. Dazu die installierten Blockschemata prüfen: `GET /wp-json/wp/v2/block-types?namespace=divi`.
+2. **Immer zuerst als Entwurf oder privat anlegen**, nie direkt die Live-Seite überschreiben. Danach im Visual Builder öffnen, eine Überschrift ändern, speichern, Desktop und Mobil prüfen.
+3. **JSON-Escapes erhalten.** Block-JSON enthält `<`, `"` usw. Keine Funktion verwenden, die das entwertet (siehe `/divi-debug` und Changelog 1.6.1).
+4. **Quellen trennen.** Nur Offizielles (dev.elegantthemes.com, help.elegantthemes.com) gilt als belegt. Angaben aus Drittquellen (z. B. `$variable(...)$`, `gcid-`/`gvid-`-IDs, `wp:divi/placeholder`) als "vermutet" behandeln und an der eigenen Installation prüfen.
+5. **Cache:** Divi-CSS liegt in `wp-content/et-cache/{post_id}/`. `wp cache flush` leert es nicht. Static CSS in den Divi-Optionen leeren.
+6. **KI-Agent von Divi** (ab 5.12): braucht Abo, sendet Seiteninhalte über OpenRouter an Drittanbieter. Für Kundenprojekte erst DSGVO und AVV klären.
+7. **Divi-4-Seiten nie vor dem Migrator im Divi-5-Builder öffnen.** Sie werden sonst sofort ohne Rollback umgewandelt.
+8. **Neu in 5.15 / 5.17:** Components und Slots, Icon Manager. Erst auf Staging testen.
+
+---
+
 ## Typische WordPress-Hooks für Divi-Projekte
 
 | Hook | Zeitpunkt | Häufige Verwendung |
@@ -966,6 +984,8 @@ Freigabe veröffentlichen. Release und Deployment getrennt berichten.
 ### /divi-module
 
 Natives Divi 5 Custom Module erstellen — React/TSX Frontend, PHP Traits Backend, `module.json` Deklaration.
+
+> ⚠️ **Abgleich mit der offiziellen Developer-Doku (28.10.2026, dev.elegantthemes.com):** Die Beispiele unten sind vereinfacht. Offiziell weicht ab: Registrierung über `$tree->add_dependency(new Klasse())` mit `DependencyInterface` und `ModuleRegistration::register_module(...)` auf `init`, in JS `registerModule(metadata, modul)`; `module.json` nutzt `{{selector}}`, `tag`, `d4Shortcode`, `moduleClassName`; `render_callback` ist statisch mit `($attrs, $content, $block, $elements)`; Ordner `server/` und `visual-builder/src/`. Details und Quellen: [docs/DIVI5-MODULE-UND-DEVELOPER.md](docs/DIVI5-MODULE-UND-DEVELOPER.md). Vor dem Bauen mit dem offiziellen Tutorial und `d5-extension-example-modules` gegenprüfen.
 
 **Plugin-Dateistruktur:**
 ```

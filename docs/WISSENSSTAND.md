@@ -1,6 +1,11 @@
 # Wissensstand: WordPress und Divi 5
 
-> Stand: 17. Oktober 2026
+> Stand: 28. Oktober 2026
+
+## Divi-5-Recherche · 28. Oktober 2026
+
+Vier neue Dokumente in diesem Ordner: [Blockformat](DIVI5-BLOCKFORMAT.md), [Funktionen und Releases](DIVI5-FUNKTIONEN-UND-RELEASES.md), [Automatisierung](DIVI5-AUTOMATISIERUNG.md), [Module und Developer-Doku](DIVI5-MODULE-UND-DEVELOPER.md).
+Wichtigste Befunde: Das Block-Markup ist offiziell nur teilweise dokumentiert, daher Referenzseite im Builder als Vorlage nutzen. Divi 5.0 erschien am 26.02.2026, das Hilfe-Center nennt zuletzt 5.17 (22.10.2026), eine Testinstallation lief schon mit 5.18.0. Es gibt keine öffentliche Doku für `divi/v1`, und keine offiziellen Divi-Abilities für WordPress-MCP. Offene Punkte (z. B. Container Queries, Dynamic-Content-Hooks, Elementor-Import) stehen in den Dokumenten als ☑️.
 
 Aktuelle Ergänzung: [Divi 5 im Oktober 2026](DIVI5-2026-10.md). GitHub und lokale Skill-Kopie werden für diesen Auftrag abgeglichen; Gitea/Wiki sind damit nicht automatisch aktualisiert.
 

@@ -69,3 +69,11 @@ Quellen: https://help.elegantthemes.com/en/articles/17438180-components-in-divi-
 - https://www.elegantthemes.com/blog/divi-resources/exploring-components-in-divi-5
 - https://help.elegantthemes.com/en/articles/17438185-how-to-create-a-component-in-divi-5
 - https://help.elegantthemes.com/en/articles/17438188-how-to-edit-a-component-in-divi-5
+
+## Praxis am echten Dev-Stand (28.10.2026, Divi 5.18) ⚠️
+
+- Globale Farben haben feste IDs: `gcid-primary-color`, `gcid-secondary-color`, `gcid-heading-color`, `gcid-body-color`, `gcid-link-color`. Im Frontend als CSS-Variablen `--gcid-…` (so lässt sich der gespeicherte Stand prüfen).
+- Die REST-Routen `/divi/v1/global-data/global-colors|global-fonts|global-variables|global-preset/sync` sind nur POST und von außen nicht lesbar. Per GET gibt es 404. Nicht blind per POST testen.
+- Im Variablenmanager (linke Leiste, Datenbank-Symbol): Speichern = blauer Knopf **„Variablen“** unten (danach Bestätigung „Änderungen übernehmen“). **„Änderungen“ verwirft** alles. Ein Barrierefreiheits-Widget kann diese Knöpfe verdecken.
+- Farbfeld: Hex per Dreifachklick markieren, tippen, Enter. Bei leerem Feld direkt in das Textfeld „Farbe auswählen“ tippen.
+- ⚠️ Nach dem Speichern war nur die Primärfarbe sitewide geändert (`#d9076d`), die anderen vier blieben Standard, und beim erneuten Öffnen fehlte die Gruppe „Farben“ im Manager. Vor Änderungen am Design-System immer UpdraftPlus-Rückfallpunkt anlegen und nach dem Speichern per Frontend (`--gcid-…`) und Neuladen des Builders prüfen.

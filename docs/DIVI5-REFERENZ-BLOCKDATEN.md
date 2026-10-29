@@ -183,3 +183,21 @@ Regeln, die sich bewährt haben (alle per `getComputedStyle` an 1280 und 375 px 
 - **Startseite:** Die Seite mit `page-id-…` im Body-Klassenattribut ist die eingestellte Startseite. Inhalt in diese ID schreiben, der SEO-Titel bleibt.
 - **Sprungziele (Anker):** Die alte Seite hatte `#aussteller` und `#stage1`. Die CSS-ID-Einstellung von Divi 5 ist nicht belegt, deshalb ein Code-Modul `<span id="…" style="display:block;position:relative;top:-90px;visibility:hidden;height:0"></span>` als erstes Element im ersten Abschnitts-Modul setzen und per `document.getElementById` prüfen. Menü-Links und Buttons mit `#…` vorher auf fehlende Ziele prüfen.
 - **zsh-Falle:** In Schleifen `read a b <<<` oder Here-Doc verwenden, `set -- $p` teilt in zsh nicht auf.
+
+## Datenschutzfreundliche Karte ohne Google ✅ (29.10.2026, Dev)
+
+- **Idee:** Karte als eigenes Bild aus OpenStreetMap-Kacheln bauen (5 x 3 Kacheln, Zoom 16, je 256 px, höflich mit User-Agent und Pause laden), Marker und Namensschild mit Pillow zeichnen, auf 1280 x 640 zuschneiden. Kein iframe, keine Anfrage an Dritte beim Laden.
+- ⚠️ **Quellenangabe** "© OpenStreetMap-Mitwirkende" ist Pflicht. Erst nach dem Zuschneiden ins Bild zeichnen, sonst wird sie abgeschnitten. Zusätzlich als Text unter dem Bild.
+- **Upload:** `POST /wp-json/wp/v2/media` (Basic Auth, `Content-Type: image/png`, `Content-Disposition: attachment; filename=...`). Die URL aus der Antwort ins Bild-Modul setzen.
+- **Bild-Modul mit Link:** `image.innerContent.desktop.value` = `{"src","alt","linkUrl","linkTarget":"on"}` (neuer Tab), Rundung über `image.decoration.border`.
+- **Einbau:** eigener Abschnitt direkt nach dem Hero, Knöpfe für OpenStreetMap und Google Maps als normale Links (Daten fließen erst beim Klick).
+- Pillow läuft nur mit normalem `python3`, nicht mit `-I`. Skript: `scripts/karte_location.py`.
+
+## Theme Builder per Schnittstelle: Header und Footer setzen ✅ (29.10.2026, Divi 5.18)
+
+- **Route:** `POST /wp-json/divi/v1/outside-vb/theme-builder/upsert-layout` mit `{layout_type:"header"|"footer", layout_content:"<Blockmarkup>", use_default_website_template:true, live:true}`. Antwort: `{templateId, layoutId, action: created|updated}`. Weitere Routen: `list-templates`, `create-template`, `update-template`, `assign-template` (alle unter `outside-vb/theme-builder/`).
+- **Zugang:** nur eingeloggter Browser. Header `X-WP-Nonce` (aus `/wp-admin/admin-ajax.php?action=rest-nonce`) und `X-ET-Nonce` (Wert der Route aus `GET /wp-json/divi/v1/settings-data/nonces`). Mit App-Passwort kommt `invalid_nonce`. Theme-Builder-Beiträge (`et_header_layout` usw.) sind nicht in `wp/v2`.
+- **Falle:** `template_id` mitzusenden gab `template_not_in_theme_builder`, weil „live" und „draft" verschiedene Template-IDs haben. `use_default_website_template:true` ohne ID funktioniert. Ein Klick auf „Globalen Header hinzufügen" im Theme Builder legt einen leeren Entwurf an: beim nächsten Öffnen „Nicht Wiederherstellen".
+- **Markup-Tipp:** große Markups per FTP nach `uploads/…` legen und im Browser per `fetch` holen, statt sie in den Aufruf zu kopieren.
+- **Menü-Modul:** `divi/menu` mit `logo.innerContent.desktop.value.{src,linkUrl,linkTarget}`, `menu.advanced.menuId.desktop.value` (Term-ID aus `wp/v2/menus`), `cartIcon.advanced.show`, `cartQuantity.advanced.show` (aus = nur Symbol), Mobil-Farben unter `menuMobile`. Funktionierte; Warenkorb-Zahl als Text „0 Elemente" erscheint, wenn `cartQuantity` an ist.
+- **Fließtext fett:** Mein Roboto-CSS setzt `.et_pb_text p` auf Gewicht 400. Fett im Text-Modul deshalb mit `<strong>`.

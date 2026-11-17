@@ -4,7 +4,9 @@ description: >
   Use when the user invokes /divi-install, /divi-install-docker, /divi-childtheme,
   /divi-backup, /divi-dev, /divi-project-filesystem, /divi-plugin, /divi-animations,
   /divi-deploy, /divi-debug, /divi-release, /divi-module, /divi-optimize, /divi-builder — or wenn
-  der Nutzer mit WordPress + Divi 5 entwickeln, designen oder Probleme lösen möchte.
+  der Nutzer mit WordPress + Divi 5 entwickeln, designen oder Probleme lösen möchte. Nutze
+  /divi-validate für eine nachweisorientierte Qualitätsprüfung und /divi-responsive für eine
+  gezielte Prüfung an mehreren Viewport-Größen.
 ---
 
 # MGD Divi 5 Dev Skill
@@ -74,6 +76,26 @@ Wartungsmodus, Backup, Shield/PIN und Datenschutz bleiben verbindlich.
 Die Installation des Begleit-Skills ist in der README beschrieben. Codex:
 `$fast-dev`; Claude Code: `/fast-dev`. Bei Release-Aufträgen den folgenden
 `/divi-release`-Ablauf und, falls installiert, `/dev` für den GitHub-Abschluss nutzen.
+
+## Qualitätssicherung: Validierung und Responsive Design
+
+Vor einer Veröffentlichung oder einer umfangreicheren Divi-Änderung die beiden
+Prüfabläufe gezielt einsetzen:
+
+- **`/divi-validate`** prüft Struktur, Semantik, Zugänglichkeit, Links, Medien,
+  Performance-Risiken und Cache-Zustand. Zuerst immer native Divi-Einstellungen,
+  Presets und Variablen beurteilen; Custom CSS oder JavaScript nur prüfen, wenn es
+  tatsächlich Teil des Auftrags ist.
+- **`/divi-responsive`** prüft die Ausgabe an realistischen Ansichten von 360 bis
+  2560 Pixel Breite, einschließlich der Übergänge an Divi-Breakpoints.
+
+Eine bestandene statische Prüfung beweist keine korrekte Frontend-Ausgabe. Ohne
+Browser- oder Gerätezugriff klar als Risikoanalyse kennzeichnen; nicht als
+erfolgreichen visuellen Test ausgeben. Keine automatischen Live-Änderungen,
+Cache-Löschungen oder externen Performance-Scans aus einer Prüfung heraus
+ausführen – dafür ist ein eigener, ausdrücklich beauftragter Arbeitsschritt nötig.
+Die vollständige Checkliste steht in
+[docs/DIVI5-QUALITÄTSSICHERUNG.md](docs/DIVI5-QUALITÄTSSICHERUNG.md).
 
 ## Befehle
 

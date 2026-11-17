@@ -2,6 +2,12 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.10.0] — 2026-11-17
+
+- `/divi-validate` ergänzt: nachweisorientierte Qualitätsprüfung für Divi-Seiten mit Struktur-, Zugänglichkeits-, Link-, Medien-, Performance- und Cache-Check.
+- `/divi-responsive` ergänzt: sichtbare Prüfung an neun praxisnahen Viewport-Größen sowie an den Übergängen der Divi-Breakpoints.
+- Neue Referenz `docs/DIVI5-QUALITÄTSSICHERUNG.md`: trennt belegte Browser-Ergebnisse, statische Risikoanalyse und offene Prüfungen. Keine automatische Änderung produktiver Seiten oder Caches aus Prüfabläufen.
+
 ## [1.9.0] — 2026-10-28
 
 - Vier neue Docs: echte Blockdaten und REST-Fallen (an Dev-Installation Divi 5.18 geprüft), Werkzeuge (Kommandozentrale, Canvas, Schichten, Inspektor), Variablen/Presets/Komponenten, Katalog aller Modul-Einstellungen (113 Module aus dem Schema).

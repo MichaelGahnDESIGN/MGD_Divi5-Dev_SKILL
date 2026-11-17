@@ -2,6 +2,13 @@
 
 > Stand: 28. Oktober 2026
 
+## Qualitätssicherung · 17. November 2026
+
+Neu: [Qualitätssicherung für Divi 5](DIVI5-QUALITÄTSSICHERUNG.md) mit einem
+nachweisorientierten Ablauf für Struktur, Barrierefreiheit, Performance und responsive
+Ansichten. Browser-Ergebnisse, statische Risikoanalyse und offene Punkte werden dabei
+explizit getrennt.
+
 ## Divi-5-Werkzeuge und Blockdaten · 28. Oktober 2026
 
 Neu: [Blockdaten und REST-Fallen](DIVI5-REFERENZ-BLOCKDATEN.md), [Werkzeuge](DIVI5-WERKZEUGE.md), [Variablen, Presets, Komponenten](DIVI5-VARIABLEN-PRESETS-KOMPONENTEN.md), [Katalog Modul-Einstellungen](DIVI5-MODUL-EINSTELLUNGEN.md). Belegt an echter Dev-Installation (5.18.0): Startseiten-Entwurf mit Farben, Schrift, Buttons, Links und Bildern gerendert. Offen: Variablen-/Preset-Format am echten Stand prüfen.

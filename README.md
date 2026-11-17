@@ -61,6 +61,8 @@ Abgleich beschreibt [der Wissensstand](docs/WISSENSSTAND.md).
 | `/divi-ai` | Divi AI sinnvoll einsetzen — Workflow, Grenzen, DSGVO |
 | `/divi-canvas` | Popups, Off-Canvas Menüs, Scroll-Trigger, Exit-Intent mit Divi Canvases |
 | `/divi-builder` | Sichere direkte Arbeit im Divi-5-Visual-Builder: Kommandozentrale, Drahtgitter, Medien, Responsive- und SEO-Abnahme |
+| `/divi-validate` | Nachweisorientierte Qualitätsprüfung: Struktur, Barrierefreiheit, Links, Medien, Performance-Risiken und Cache |
+| `/divi-responsive` | Responsive-Abnahme an neun Viewport-Größen einschließlich Breakpoint-Übergängen |
 
 ## Grundregeln — Was Dieser Skill Immer Tut
 

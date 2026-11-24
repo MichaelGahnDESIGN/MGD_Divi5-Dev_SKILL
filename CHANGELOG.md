@@ -2,6 +2,11 @@
 
 Alle nennenswerten Änderungen an diesem Projekt werden hier dokumentiert.
 
+## [1.11.0] — 2026-11-24
+
+- Neues Doc `docs/DIVI5-KOMMANDOZENTRALE-UND-DESIGNSYSTEM.md`: sicherer Kommandozentrale-Ablauf, Variablen, Presets, Bibliothek, Theme Builder, Designsystem-Reihenfolge und Prüfliste.
+- `SKILL.md`: Link auf das neue Doc.
+
 ## [1.10.0] — 2026-11-17
 
 - `/divi-validate` ergänzt: nachweisorientierte Qualitätsprüfung für Divi-Seiten mit Struktur-, Zugänglichkeits-, Link-, Medien-, Performance- und Cache-Check.

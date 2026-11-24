@@ -949,7 +949,7 @@ Freigabe veröffentlichen. Release und Deployment getrennt berichten.
 
 Ausführliche, quellenbelegte Recherche liegt in `docs/`:
 [Blockformat](docs/DIVI5-BLOCKFORMAT.md) · [Funktionen und Releases](docs/DIVI5-FUNKTIONEN-UND-RELEASES.md) · [Automatisierung](docs/DIVI5-AUTOMATISIERUNG.md) · [Module und Developer-Doku](docs/DIVI5-MODULE-UND-DEVELOPER.md)
-Neu 28.10.2026 (zweite Runde, an echter Dev-Installation geprüft): [Echte Blockdaten und REST-Fallen](docs/DIVI5-REFERENZ-BLOCKDATEN.md) · [Werkzeuge: Kommandozentrale, Canvas, Schichten, Inspektor](docs/DIVI5-WERKZEUGE.md) · [Variablen, Presets, Komponenten](docs/DIVI5-VARIABLEN-PRESETS-KOMPONENTEN.md) · [Katalog aller Modul-Einstellungen](docs/DIVI5-MODUL-EINSTELLUNGEN.md)
+Neu 28.10.2026 (zweite Runde, an echter Dev-Installation geprüft): [Echte Blockdaten und REST-Fallen](docs/DIVI5-REFERENZ-BLOCKDATEN.md) · [Werkzeuge: Kommandozentrale, Canvas, Schichten, Inspektor](docs/DIVI5-WERKZEUGE.md) · [Variablen, Presets, Komponenten](docs/DIVI5-VARIABLEN-PRESETS-KOMPONENTEN.md) · [Katalog aller Modul-Einstellungen](docs/DIVI5-MODUL-EINSTELLUNGEN.md) · [Kommandozentrale im Alltag und Designsystem](docs/DIVI5-KOMMANDOZENTRALE-UND-DESIGNSYSTEM.md)
 
 **Kernregeln:**
 

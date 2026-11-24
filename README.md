@@ -279,6 +279,9 @@ Passt gut dazu:
 | [MGD-SEO](https://github.com/MichaelGahnDESIGN/MGD-SEO) | `/seo` | SEO-Skill mit lokalem Prüfkern |
 | [MGD_Backup_SKILL](https://github.com/MichaelGahnDESIGN/MGD_Backup_SKILL) | `/backup` | Backups lokal, NAS und Cloud mit Prüfsummen |
 | [MGD_Todo_SKILL](https://github.com/MichaelGahnDESIGN/MGD_Todo_SKILL) | `/todo` | Aufgabenliste in einer HTML-Datei, dazu /board, /wissen, /fragenkatalog, /prozesse |
+| [Hallmark](https://github.com/nutlope/hallmark) | `/hallmark` | Designrichtung und Browser-Linter für neue, ausdrücklich beauftragte Seiten; kein automatisches Redesign bestehender Divi-Layouts |
+| [ECC](https://github.com/affaan-m/ECC) | ECC Core | Planungs-, Test- und Verifikationswerkzeuge für anspruchsvollere Umsetzungen |
+| [Superpowers](https://github.com/obra/superpowers) | Superpowers | Ergänzende Skills für Planung, Debugging, Tests und Review |
 
 ## Verwandte MGD Projekte
 

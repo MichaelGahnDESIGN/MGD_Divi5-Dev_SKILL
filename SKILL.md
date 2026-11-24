@@ -77,6 +77,10 @@ Die Installation des Begleit-Skills ist in der README beschrieben. Codex:
 `$fast-dev`; Claude Code: `/fast-dev`. Bei Release-Aufträgen den folgenden
 `/divi-release`-Ablauf und, falls installiert, `/dev` für den GitHub-Abschluss nutzen.
 
+## Ergänzende Skills: Erstinstallation und Updates
+
+Bei der ersten Installation dieses Skills Hallmark (`npx skills add nutlope/hallmark -g`), ECC Core (offizieller Codex-Marktplatz beziehungsweise `npx ecc-universal@2.2.3 install --guided --harness codex --profile core --yes`) und Superpowers aus dem offiziellen Codex-Plugin-Marktplatz zusätzlich einrichten. Der lokale Skill-Update-Ablauf aktualisiert dieselben Quellen. Nur offizielle GitHub-/Marketplace-Quellen verwenden, vorhandene Nutzeranpassungen nicht überschreiben und erforderliches Plugin-Vertrauen beim Agenten belassen.
+
 ## Qualitätssicherung: Validierung und Responsive Design
 
 Vor einer Veröffentlichung oder einer umfangreicheren Divi-Änderung die beiden
@@ -96,6 +100,10 @@ Cache-Löschungen oder externen Performance-Scans aus einer Prüfung heraus
 ausführen – dafür ist ein eigener, ausdrücklich beauftragter Arbeitsschritt nötig.
 Die vollständige Checkliste steht in
 [docs/DIVI5-QUALITÄTSSICHERUNG.md](docs/DIVI5-QUALITÄTSSICHERUNG.md).
+
+## Optionale Gestaltung mit Hallmark
+
+[Hallmark](https://github.com/nutlope/hallmark) kann bei einer **neuen, ausdrücklich beauftragten** Divi-Seite als Design-Impuls und zusätzlicher Browser-Linter dienen. Vorhandene Divi-Seiten, Theme-Builder-Vorlagen, Child-Themes, Presets und Markenrichtlinien bleiben unverändert; dafür ist nur ein ausdrücklich verlangtes Hallmark-`audit` oder `redesign` zulässig. Hallmark ersetzt weder `/divi-validate` noch `/divi-responsive`.
 
 ## Befehle
 
